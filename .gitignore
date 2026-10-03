@@ -17,3 +17,4 @@ eval_out/
 *.npz
 .env
 .env.*
+*.tmp

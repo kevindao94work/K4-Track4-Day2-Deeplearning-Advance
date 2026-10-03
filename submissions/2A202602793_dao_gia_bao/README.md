@@ -51,3 +51,36 @@ báo miễn decay có weight decay bằng 0. Khi đóng băng, gọi `model.trai
 giữ backbone/BatchNorm ở eval và chỉ bật head. GMAC đo bằng
 `torch.utils.flop_counter.FlopCounterMode` rồi quy đổi FLOP/2, chỉ tính toán tử
 được công cụ hỗ trợ; đây là số đo tính toán, không đại diện trực tiếp cho độ trễ.
+
+## Engine huấn luyện
+
+`train.run(Config(...))` là lối vào duy nhất cho B/T/F. Mặc định giữ công thức
+starter (12 epoch, batch 64, AdamW, LR backbone/head 1e-4/1e-3, WD 0,05).
+Các lần chạy trên MPS dùng FP32; AMP/GradScaler chỉ bật thực sự trên CUDA và
+trạng thái thực tế được ghi vào `config.json`. Warmup + cosine cập nhật theo
+iteration. EMA đánh giá bằng bản trọng số EMA, trung bình buffer số thực và
+sao chép buffer số nguyên. Val loss luôn là CE không trọng số để dễ đối chiếu;
+train loss là loss mục tiêu của thí nghiệm. Với Mixup/CutMix, không báo accuracy train.
+
+Mỗi lần chạy lưu `config.json`, `history.csv`, `summary.json`, `best.pt`,
+`latest.pt`, đầu ra val và CSV dự đoán. `latest.pt` giữ optimizer, scheduler,
+scaler, EMA, RNG và trạng thái generator của DataLoader để tiếp tục đúng cấu hình.
+Chạy lại cùng exp_id/seed và cấu hình sẽ tiếp tục hoặc trả kết quả đã hoàn tất;
+đổi cấu hình phải dùng exp_id mới. Checkpoint chọn theo macro-F1 val, hòa lấy
+epoch sớm hơn. Thời gian train và val được đo riêng; không gồm ghi biểu đồ/checkpoint.
+
+```bash
+.venv/bin/python submissions/2A202602793_dao_gia_bao/code/check_training.py
+.venv/bin/python submissions/2A202602793_dao_gia_bao/code/train.py --set \
+  exp_id=EXAMPLE backbone=mobilenetv3_small_100.lamb_in1k seed=0 \
+  epochs=10 img_size=128 batch_size=32 amp=false \
+  out_dir=submissions/2A202602793_dao_gia_bao/logs \
+  pred_dir=submissions/2A202602793_dao_gia_bao/predictions \
+  curves_dir=submissions/2A202602793_dao_gia_bao/curves
+```
+
+Lệnh `EXAMPLE` là ví dụ cú pháp, không phải kết quả đã đo. Thí nghiệm smoke chỉ
+kiểm tra kỹ thuật trên tập nhỏ, không dùng để chọn cấu hình. Bằng chứng giai đoạn 4
+bao gồm nạp lại checkpoint, backbone đóng băng không đổi, và tiếp tục CPU cho
+trọng số khớp chính xác với lần chạy không gián đoạn. Test mặc định bị niêm phong;
+phải có cấu hình chốt trước khi xuất dự đoán test.

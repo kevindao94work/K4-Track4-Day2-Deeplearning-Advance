@@ -1,0 +1,29 @@
+[
+  {
+    "mode": "finetune",
+    "best_epoch": 1,
+    "val_loss": 2.218869686126709,
+    "macro_f1": 0.011695906432748537,
+    "weights_updated": true,
+    "frozen_unchanged": false,
+    "checkpoint_reloaded": true,
+    "fresh_eval_max_logit_error": 0.0,
+    "curve": "evidence/smoke_curves/SMOKE_finetune_seed0_mobilenetv3_small_100.png"
+  },
+  {
+    "mode": "frozen",
+    "best_epoch": 1,
+    "val_loss": 2.194264703326755,
+    "macro_f1": 0.07407407407407407,
+    "weights_updated": true,
+    "frozen_unchanged": true,
+    "checkpoint_reloaded": true,
+    "fresh_eval_max_logit_error": 0.0,
+    "curve": "evidence/smoke_curves/SMOKE_frozen_seed0_mobilenetv3_small_100.png"
+  },
+  {
+    "mode": "resume_cpu",
+    "epochs_completed": 2,
+    "weights_match_uninterrupted_exactly": true
+  }
+]
