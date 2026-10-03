@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "sections": 9,
+  "language": "Tiếng Việt",
+  "metrics_source": "tables/*.csv + evidence/stage11.json (eval.py nguyên bản)",
+  "words": 3793,
+  "unchanged_configuration_after_test": true
+}

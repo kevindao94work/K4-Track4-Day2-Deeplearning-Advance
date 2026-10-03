@@ -1,0 +1,12 @@
+{
+  "tables/Summary.csv": "8ac32ba50148f3855eb20cda693447d6ac9b12313c3bf06a46e33c2b771c8c7b",
+  "tables/Training.csv": "7ba92343f9279e1c2004b051ac3aab5e791ff13e6f750b905e75b79827c43c50",
+  "tables/PerClass.csv": "0c0eef4e1d2e1173a49bf81864b119b53c454d7c99fa13626d1b280183e98e49",
+  "tables/FinalValidation.csv": "2ffdf921232453fbb26d85c7e1e4a390adc68c7143925cfa9643df3789c06c90",
+  "tables/Backbones.csv": "75d4e03eab5598b6862a7c39a57cd58d3abd2ef5707ed1b180bd2cce5bc0bf42",
+  "tables/Final.csv": "cb94647afbbc26ac38a38f621835ba02b069071e37cf242d0c3389125c91b431",
+  "tables/Latency.csv": "ea4f35c246a7c9a0a759bf64b3623275f6b006102e2cf63f0706f33cbac36f95",
+  "tables/Inference.csv": "d8e4d51bc02c7907e1da31ad6761735743031d20277ae4506baadd56b62a7c23",
+  "evidence/stage11.json": "1a63e699f405101304a2b5fb91d274745e91dc96c7050537eda0b0f0a393db94",
+  "evidence/error_examples_test.json": "f608e17af2834018a3ad88a35d71f6826ab1d3c90e07000756557736e8a683a2"
+}
