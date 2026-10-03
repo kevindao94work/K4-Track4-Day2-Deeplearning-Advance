@@ -1,0 +1,39 @@
+{
+  "source_exp_id": "I08",
+  "method": {
+    "exp_id": "I04",
+    "name": "Một view 160",
+    "policy": "identity",
+    "resolution": 160,
+    "input_size": 160,
+    "aggregation": "logit",
+    "sizes": [
+      96,
+      128,
+      160
+    ]
+  },
+  "temperature_policy": "val_nll_per_seed",
+  "screening_temperature": 0.6325188143255821,
+  "selection_split": "val",
+  "result": {
+    "exp_id": "I08",
+    "method": "Một view 160 + TS khớp NLL val",
+    "model_checkpoint": "T05_ls_seed0/best.pt",
+    "checkpoint_sha256": "aa34941b180862db283c4c952d8b7891349340da64725e1142fa0ede8422bbe6",
+    "K": 1,
+    "resolution": 160,
+    "input_size": 160,
+    "temperature": 0.6325188143255821,
+    "macro_f1_val": 0.9434138860750934,
+    "top1_val": 0.956583833190517,
+    "ece_val": 0.013259729685804099,
+    "nll_val": 0.13842337430715176,
+    "latency_p50_batch1_ms": 6.82166701881215,
+    "latency_p95_batch1_ms": 7.14318573300261,
+    "latency_p99_batch1_ms": 7.543220521183684,
+    "throughput_images_s": 1164.8930289842917,
+    "relative_cost_vs_I00": 1.0593164618407063
+  },
+  "reason": "Macro-F1 val cao nhất; khi hòa ưu tiên NLL val rồi p95 thấp. TS fit riêng val mỗi seed trước test."
+}

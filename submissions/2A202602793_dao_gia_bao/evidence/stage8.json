@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "val_n": 3501,
+  "warmups": 10,
+  "timed_iterations": 50,
+  "batches": [
+    1,
+    32
+  ],
+  "synchronization": "mps",
+  "calibration": [
+    {
+      "exp_id": "I07",
+      "source": "I00",
+      "temperature": 0.6586967310964359,
+      "fit_split": "val",
+      "n": 3501,
+      "argmax_unchanged": true,
+      "ece_before": 0.08694790674024493,
+      "ece_after": 0.009988860548414816,
+      "nll_before": 0.23962640962088982,
+      "nll_after": 0.1741520962004459
+    },
+    {
+      "exp_id": "I08",
+      "source": "I04",
+      "temperature": 0.6325188143255821,
+      "fit_split": "val",
+      "n": 3501,
+      "argmax_unchanged": true,
+      "ece_before": 0.08760066142335912,
+      "ece_after": 0.013259729685804099,
+      "nll_before": 0.20974277068988068,
+      "nll_after": 0.13842337430715176
+    }
+  ],
+  "batchnorm_layers": 0,
+  "bn_fusion_note": "convnext_atto.d2_in1k: không có BN để gộp; utility đã kiểm tra trên Conv/BN CPU.",
+  "methods": [
+    "I00",
+    "I01",
+    "I02",
+    "I03",
+    "I04",
+    "I05",
+    "I06",
+    "I07",
+    "I08"
+  ],
+  "test_evaluated": false,
+  "code_sha256": {
+    "inference.py": "ad91241c5e8fb69203740c7d0626481465adf3ab302ccd2fc42b6ff0d681ec3c",
+    "benchmark.py": "71d662c49fea1b59c75a80206b4c5cb9c33654c7346593cd904fc80c9d042e7e",
+    "inference_lab.py": "daa26e2461e1682585ae98f11d2181eaddcd5d31271c7ec74f3b87be50981c2f"
+  },
+  "prediction_order_checked": true
+}

@@ -156,3 +156,22 @@ chính xác ở `evidence/loader_equivalence.json`. Mọi lượt ablation dùng
 tối ưu này. Không so thời gian I/O giai đoạn backbone và ablation như tác động
 của hyperparameter. `tables/Training.csv` và `evidence/training_selection.md`
 được sinh từ log thật; ưu thế nhỏ ở một seed cần kiểm tra lại nhiễu seed.
+
+## So sánh suy luận và benchmark
+
+```bash
+.venv/bin/python submissions/2A202602793_dao_gia_bao/code/workflow.py inference
+```
+
+I00 là một view trên checkpoint công thức chọn; I01/I02 là hflip gộp prob/logit;
+I03 là năm crop; I04/I05 là độ phân giải 160/224; I06 là ba scale. I07 khớp
+nhiệt độ cho I00 và I08 khớp cho phương pháp có macro-F1 val cao nhất. Cùng tập
+val nguyên bản, không huấn luyện lại. Chọn macro-F1, khi hòa dùng NLL rồi p95.
+Nhiệt độ tối ưu NLL val, giữ argmax; ECE 15 bin theo `eval.py`.
+
+`tables/Inference.csv`, `tables/Latency.csv` và JSON trong `logs/inference/` lưu
+p50/p95/p99, 10 warmup/50 mẫu đồng bộ, FP32, batch 1 và throughput batch 32.
+Các mẫu thời gian thô cũng được giữ. Bao gồm biến đổi view/forward/gộp/softmax
+trên GPU; **không tính đọc ảnh/resize/normalize CPU**. Đây chưa phải độ trễ toàn
+bộ hệ thống camera/robot. ConvNeXt dùng LayerNorm nên không có BN để gộp;
+utility BN fusion được kiểm tra riêng, không gán một kết quả tăng tốc giả.
