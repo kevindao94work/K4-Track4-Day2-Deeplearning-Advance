@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "sheets": {
+    "Backbones": {
+      "rows": 5,
+      "columns": 16,
+      "all_values_match_sources": true
+    },
+    "Training": {
+      "rows": 8,
+      "columns": 14,
+      "all_values_match_sources": true
+    },
+    "Inference": {
+      "rows": 9,
+      "columns": 17,
+      "all_values_match_sources": true
+    },
+    "Final": {
+      "rows": 8,
+      "columns": 17,
+      "all_values_match_sources": true
+    },
+    "PerClass": {
+      "rows": 18,
+      "columns": 10,
+      "all_values_match_sources": true
+    },
+    "Latency": {
+      "rows": 22,
+      "columns": 21,
+      "all_values_match_sources": true
+    },
+    "Summary": {
+      "rows": 10,
+      "columns": 9,
+      "all_values_match_sources": true
+    }
+  },
+  "output": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/results.xlsx",
+  "authoring": "openpyxl fallback: artifact-tool/loader và cache runtime không có trên host macOS",
+  "formulas": 0,
+  "data": "Số đo cố định; bảng tổng hợp tính từ CSV bằng pandas/numpy, không cần recalculation Excel",
+  "visual_previews": "evidence/workbook_<sheet>_<start_column>.png; tất cả cột được chia cụm",
+  "selection": "Highlight macro-F1 validation cao nhất, không chọn theo test"
+}
