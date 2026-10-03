@@ -1,0 +1,97 @@
+{
+  "examples": [
+    {
+      "seed": 0,
+      "filename": "20170207-154046-0.jpg",
+      "true_label": 0,
+      "pred_label": 7,
+      "confidence": 0.95599856,
+      "pair_0_7": true,
+      "focus": true
+    },
+    {
+      "seed": 0,
+      "filename": "20170304-131755-0.jpg",
+      "true_label": 7,
+      "pred_label": 0,
+      "confidence": 0.68542994,
+      "pair_0_7": true,
+      "focus": true
+    },
+    {
+      "seed": 0,
+      "filename": "20170304-132652-0.jpg",
+      "true_label": 7,
+      "pred_label": 0,
+      "confidence": 0.98653076,
+      "pair_0_7": true,
+      "focus": true
+    },
+    {
+      "seed": 0,
+      "filename": "20170410-124301-0.jpg",
+      "true_label": 0,
+      "pred_label": 7,
+      "confidence": 0.71007647,
+      "pair_0_7": true,
+      "focus": true
+    },
+    {
+      "seed": 0,
+      "filename": "20170410-124336-0.jpg",
+      "true_label": 0,
+      "pred_label": 7,
+      "confidence": 0.7105407,
+      "pair_0_7": true,
+      "focus": true
+    },
+    {
+      "seed": 0,
+      "filename": "20170410-124729-0.jpg",
+      "true_label": 0,
+      "pred_label": 7,
+      "confidence": 0.82439108,
+      "pair_0_7": true,
+      "focus": true
+    },
+    {
+      "seed": 0,
+      "filename": "20170704-153838-0.jpg",
+      "true_label": 7,
+      "pred_label": 0,
+      "confidence": 0.64197789,
+      "pair_0_7": true,
+      "focus": true
+    },
+    {
+      "seed": 0,
+      "filename": "20170705-162506-0.jpg",
+      "true_label": 7,
+      "pred_label": 0,
+      "confidence": 0.71660397,
+      "pair_0_7": true,
+      "focus": true
+    }
+  ],
+  "pair_counts": [
+    {
+      "seed": 0,
+      "chinee_to_snake": 7,
+      "snake_to_chinee": 9,
+      "errors_total": 137
+    },
+    {
+      "seed": 1,
+      "chinee_to_snake": 5,
+      "snake_to_chinee": 10,
+      "errors_total": 157
+    },
+    {
+      "seed": 2,
+      "chinee_to_snake": 8,
+      "snake_to_chinee": 7,
+      "errors_total": 153
+    }
+  ],
+  "selection": "Ưu tiên nhầm Chinee↔Snake trên ba seed, rồi lớp thật 0/7; tên ảnh duy nhất; tất cả điểm số vẫn dùng đầy đủ test."
+}

@@ -1,0 +1,69 @@
+{
+  "passed": true,
+  "ddof": 1,
+  "test_n_per_seed": 3507,
+  "groups": {
+    "F01": {
+      "top1": {
+        "mean": 0.9575135443398916,
+        "std": 0.00301768042322738
+      },
+      "macro_f1": {
+        "mean": 0.9450662369036796,
+        "std": 0.0035530585002216727
+      },
+      "balanced_acc": {
+        "mean": 0.9395558610727345,
+        "std": 0.006462834499318822
+      },
+      "ece": {
+        "mean": 0.008748776154357943,
+        "std": 0.0019314559644126737
+      },
+      "nll": {
+        "mean": 0.14899786340614968,
+        "std": 0.007718668521427801
+      }
+    },
+    "T00": {
+      "top1": {
+        "mean": 0.9478186484174508,
+        "std": 0.0033617981529944913
+      },
+      "macro_f1": {
+        "mean": 0.9325362623034438,
+        "std": 0.005068535562000287
+      },
+      "balanced_acc": {
+        "mean": 0.9282022323080118,
+        "std": 0.006922305887064484
+      },
+      "ece": {
+        "mean": 0.010794338107594259,
+        "std": 0.0012643520325178656
+      },
+      "nll": {
+        "mean": 0.16359672870264452,
+        "std": 0.006063194213836041
+      }
+    }
+  },
+  "paired_delta_macro_f1": {
+    "mean": 0.012529974600235786,
+    "std": 0.002647779626203799,
+    "per_seed": [
+      0.012268364405518595,
+      0.015298848504213147,
+      0.010022710890975617
+    ]
+  },
+  "test_passes_per_seed": 1,
+  "uncal_ece": {
+    "mean": 0.08557331901340176,
+    "std": 0.0051979217757012865
+  },
+  "final_latency_p95_batch1_ms": 14.722529653226957,
+  "temperature_fit_split": "val",
+  "configuration_unchanged_after_test": true,
+  "official_output": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/evidence/official_eval"
+}

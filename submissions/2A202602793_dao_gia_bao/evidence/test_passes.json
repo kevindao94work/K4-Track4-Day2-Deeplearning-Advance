@@ -1,0 +1,197 @@
+{
+  "records": [
+    {
+      "exp_id": "F01",
+      "seed": 0,
+      "frozen_sha256": "3cd92528bed41eb7077bb6286aa5c87390b759147e0b765418a8ebfddcc8bca7",
+      "checkpoint_sha256": "5994e1e6b06df69ce93aa00e92d4d6d167a35e840572266da47b3a4d0b1712b4",
+      "temperature": 0.6325188143255821,
+      "temperature_fit_split": "val",
+      "n": 3507,
+      "method": {
+        "exp_id": "I04",
+        "name": "Một view 160",
+        "policy": "identity",
+        "resolution": 160,
+        "input_size": 160,
+        "aggregation": "logit",
+        "sizes": [
+          96,
+          128,
+          160
+        ]
+      },
+      "status": "complete",
+      "pass_count": 1,
+      "started_utc": "2026-10-03T16:09:11.067353+00:00",
+      "completed_utc": "2026-10-03T16:09:28.650031+00:00",
+      "prediction_sha256": {
+        "F01_seed0_test.csv": "4a3494f3bb2ee4309ecd0b8521c1eb963b366a696e44a369ec9e6890e23bd8c4",
+        "F01_uncal_seed0_test.csv": "31602251761f66ae4a99167a7e4c7ffb0ab9372ae706197ae63a37b92fe06596"
+      },
+      "argmax_unchanged": true,
+      "forward_dataset_passes": 1
+    },
+    {
+      "exp_id": "F01",
+      "seed": 1,
+      "frozen_sha256": "3cd92528bed41eb7077bb6286aa5c87390b759147e0b765418a8ebfddcc8bca7",
+      "checkpoint_sha256": "30438fdf08878d2703c955f27db0d41718e3fb7388ccd173c16aa51bc9ea3ddb",
+      "temperature": 0.6635767870435406,
+      "temperature_fit_split": "val",
+      "n": 3507,
+      "method": {
+        "exp_id": "I04",
+        "name": "Một view 160",
+        "policy": "identity",
+        "resolution": 160,
+        "input_size": 160,
+        "aggregation": "logit",
+        "sizes": [
+          96,
+          128,
+          160
+        ]
+      },
+      "status": "complete",
+      "pass_count": 1,
+      "started_utc": "2026-10-03T16:09:29.150555+00:00",
+      "completed_utc": "2026-10-03T16:09:46.427401+00:00",
+      "prediction_sha256": {
+        "F01_seed1_test.csv": "eccce6f142faee60d763c169f687f30ade10feab4f5f2e57b33c830f2b965417",
+        "F01_uncal_seed1_test.csv": "cb979dafa6173f1eb6e3bb09634050018182e941f5febfe6736d3ffe5bc57e43"
+      },
+      "argmax_unchanged": true,
+      "forward_dataset_passes": 1
+    },
+    {
+      "exp_id": "F01",
+      "seed": 2,
+      "frozen_sha256": "3cd92528bed41eb7077bb6286aa5c87390b759147e0b765418a8ebfddcc8bca7",
+      "checkpoint_sha256": "6add243b19df15095b39b5c0e511858dfb5c61fc5147200f598a538cbfdfc517",
+      "temperature": 0.6535930229138088,
+      "temperature_fit_split": "val",
+      "n": 3507,
+      "method": {
+        "exp_id": "I04",
+        "name": "Một view 160",
+        "policy": "identity",
+        "resolution": 160,
+        "input_size": 160,
+        "aggregation": "logit",
+        "sizes": [
+          96,
+          128,
+          160
+        ]
+      },
+      "status": "complete",
+      "pass_count": 1,
+      "started_utc": "2026-10-03T16:09:46.928949+00:00",
+      "completed_utc": "2026-10-03T16:10:04.245659+00:00",
+      "prediction_sha256": {
+        "F01_seed2_test.csv": "a192c412c29ec8d06a3469e0069fcd087b98da66dbd697f114413338ecd35b7c",
+        "F01_uncal_seed2_test.csv": "0d4206cfa96cfc1f0871d1f5f9bbe97db3bf6d3cbe46111e832d04155b15b054"
+      },
+      "argmax_unchanged": true,
+      "forward_dataset_passes": 1
+    },
+    {
+      "exp_id": "T00",
+      "seed": 0,
+      "frozen_sha256": "3cd92528bed41eb7077bb6286aa5c87390b759147e0b765418a8ebfddcc8bca7",
+      "checkpoint_sha256": "11a51f146dcc169bd7a0be616a46baf49d467973de52c92228ec7d2d794b95c2",
+      "temperature": 1.0,
+      "temperature_fit_split": null,
+      "n": 3507,
+      "method": {
+        "exp_id": "I00",
+        "name": "Một view",
+        "policy": "identity",
+        "resolution": 128,
+        "input_size": 128,
+        "aggregation": "logit",
+        "sizes": [
+          96,
+          128,
+          160
+        ]
+      },
+      "status": "complete",
+      "pass_count": 1,
+      "started_utc": "2026-10-03T16:10:04.731775+00:00",
+      "completed_utc": "2026-10-03T16:10:21.240008+00:00",
+      "prediction_sha256": {
+        "T00_seed0_test.csv": "4ce5b57a52ed58e43d1e1edaa4a87e6eec4865c3700d1835d68db15788338692",
+        "T00_uncal_seed0_test.csv": "4ce5b57a52ed58e43d1e1edaa4a87e6eec4865c3700d1835d68db15788338692"
+      },
+      "argmax_unchanged": true,
+      "forward_dataset_passes": 1
+    },
+    {
+      "exp_id": "T00",
+      "seed": 1,
+      "frozen_sha256": "3cd92528bed41eb7077bb6286aa5c87390b759147e0b765418a8ebfddcc8bca7",
+      "checkpoint_sha256": "9b1ecf0480c899dbb018253db51371cb6c75f5ac9fc9539e752d1c2f8ca87617",
+      "temperature": 1.0,
+      "temperature_fit_split": null,
+      "n": 3507,
+      "method": {
+        "exp_id": "I00",
+        "name": "Một view",
+        "policy": "identity",
+        "resolution": 128,
+        "input_size": 128,
+        "aggregation": "logit",
+        "sizes": [
+          96,
+          128,
+          160
+        ]
+      },
+      "status": "complete",
+      "pass_count": 1,
+      "started_utc": "2026-10-03T16:10:21.726993+00:00",
+      "completed_utc": "2026-10-03T16:10:38.024483+00:00",
+      "prediction_sha256": {
+        "T00_seed1_test.csv": "50f0768ac881b161e1e81743ddedadb5436a6f456c1a84610f183ecd6c221f2b",
+        "T00_uncal_seed1_test.csv": "50f0768ac881b161e1e81743ddedadb5436a6f456c1a84610f183ecd6c221f2b"
+      },
+      "argmax_unchanged": true,
+      "forward_dataset_passes": 1
+    },
+    {
+      "exp_id": "T00",
+      "seed": 2,
+      "frozen_sha256": "3cd92528bed41eb7077bb6286aa5c87390b759147e0b765418a8ebfddcc8bca7",
+      "checkpoint_sha256": "26c7eb3d062f5903b45f30097c94282950a1fda431c3092e755e71c67cc2b05e",
+      "temperature": 1.0,
+      "temperature_fit_split": null,
+      "n": 3507,
+      "method": {
+        "exp_id": "I00",
+        "name": "Một view",
+        "policy": "identity",
+        "resolution": 128,
+        "input_size": 128,
+        "aggregation": "logit",
+        "sizes": [
+          96,
+          128,
+          160
+        ]
+      },
+      "status": "complete",
+      "pass_count": 1,
+      "started_utc": "2026-10-03T16:10:38.534745+00:00",
+      "completed_utc": "2026-10-03T16:10:54.802458+00:00",
+      "prediction_sha256": {
+        "T00_seed2_test.csv": "b49db26b8ffd60c26ac4f445ec46a4112968a46a5fc334c25fc46b4cc24e3595",
+        "T00_uncal_seed2_test.csv": "b49db26b8ffd60c26ac4f445ec46a4112968a46a5fc334c25fc46b4cc24e3595"
+      },
+      "argmax_unchanged": true,
+      "forward_dataset_passes": 1
+    }
+  ],
+  "all_once": true
+}

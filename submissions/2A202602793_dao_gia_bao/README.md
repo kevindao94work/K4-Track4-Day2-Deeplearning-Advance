@@ -220,3 +220,12 @@ Utility tải đúng snapshot trong file chốt, kiểm tra SHA-256 trước khi
 đọc. Lỗi cache trước T00 seed0 và bằng chứng hash được giữ trong `evidence/`.
 Các lượt F01 đã hoàn tất được nạp lại từ log/CSV, không thay công thức hoặc
 trọng số nguồn. Máy mới chạy toàn bộ quy trình cần bỏ offline cho giai đoạn tải.
+
+## Test một lần và evaluator chính thức
+
+```bash
+.venv/bin/python submissions/2A202602793_dao_gia_bao/code/workflow.py test
+.venv/bin/python submissions/2A202602793_dao_gia_bao/code/workflow.py evaluate
+```
+
+Chỉ chạy sau khi sáu lượt train/val hoàn tất và đã chốt cấu hình. Ledger được tạo độc quyền trước forward; lượt hoàn tất chỉ xác minh CSV khi gọi lại, lượt bị ngắt phải điều tra, không tự chạy test lần hai. Evaluator đọc CSV có thể chạy lại mà không suy luận model. Bản uncal và TS dùng cùng logits test. Kết quả và tự chấm ở `evidence/official_eval/`; mọi chỉ số dùng evaluator gốc.

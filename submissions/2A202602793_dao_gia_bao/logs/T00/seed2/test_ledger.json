@@ -1,0 +1,32 @@
+{
+  "exp_id": "T00",
+  "seed": 2,
+  "frozen_sha256": "3cd92528bed41eb7077bb6286aa5c87390b759147e0b765418a8ebfddcc8bca7",
+  "checkpoint_sha256": "26c7eb3d062f5903b45f30097c94282950a1fda431c3092e755e71c67cc2b05e",
+  "temperature": 1.0,
+  "temperature_fit_split": null,
+  "n": 3507,
+  "method": {
+    "exp_id": "I00",
+    "name": "Một view",
+    "policy": "identity",
+    "resolution": 128,
+    "input_size": 128,
+    "aggregation": "logit",
+    "sizes": [
+      96,
+      128,
+      160
+    ]
+  },
+  "status": "complete",
+  "pass_count": 1,
+  "started_utc": "2026-10-03T16:10:38.534745+00:00",
+  "completed_utc": "2026-10-03T16:10:54.802458+00:00",
+  "prediction_sha256": {
+    "T00_seed2_test.csv": "b49db26b8ffd60c26ac4f445ec46a4112968a46a5fc334c25fc46b4cc24e3595",
+    "T00_uncal_seed2_test.csv": "b49db26b8ffd60c26ac4f445ec46a4112968a46a5fc334c25fc46b4cc24e3595"
+  },
+  "argmax_unchanged": true,
+  "forward_dataset_passes": 1
+}

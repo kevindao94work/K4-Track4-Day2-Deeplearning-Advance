@@ -144,3 +144,9 @@ def predict_method(model,loader,device,method):
     if not zs or len(set(names))!=len(names):raise ValueError('Loader rỗng/tên trùng')
     logits=np.concatenate(zs);_logits(logits)
     return names,np.concatenate(ys).astype(np.int64),logits
+
+
+def export_frozen_test(cfg):
+    """Giao diện engine; ledger và cổng đủ ba seed nằm trong test_once."""
+    from test_once import export_frozen_test as export
+    return export(cfg)
