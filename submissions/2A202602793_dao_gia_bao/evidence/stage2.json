@@ -1,0 +1,534 @@
+[
+  {
+    "architecture": "resnet18",
+    "pretrained_tag": "resnet18.a1_in1k",
+    "pretrained_used": false,
+    "pretrained_cfg": {
+      "url": "https://github.com/huggingface/pytorch-image-models/releases/download/v0.1-rsb-weights/resnet18_a1_0-d63eafa0.pth",
+      "hf_hub_id": "timm/resnet18.a1_in1k",
+      "architecture": "resnet18",
+      "tag": "a1_in1k",
+      "custom_load": false,
+      "input_size": [
+        3,
+        224,
+        224
+      ],
+      "test_input_size": [
+        3,
+        288,
+        288
+      ],
+      "fixed_input_size": false,
+      "interpolation": "bicubic",
+      "crop_pct": 0.95,
+      "test_crop_pct": 1.0,
+      "crop_mode": "center",
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "num_classes": 1000,
+      "pool_size": [
+        7,
+        7
+      ],
+      "first_conv": "conv1",
+      "classifier": "fc",
+      "license": "apache-2.0",
+      "origin_url": "https://github.com/huggingface/pytorch-image-models",
+      "paper_ids": "arXiv:2110.00476"
+    },
+    "parameters_m": 11.181129,
+    "trainable_parameters": 11181129,
+    "gmac": 0.592187904,
+    "gmac_tool": "torch.utils.flop_counter.FlopCounterMode, FLOP/2; toán tử được hỗ trợ",
+    "init": "finetune",
+    "shape": [
+      2,
+      9
+    ],
+    "finite": true,
+    "tested_pretrained": false,
+    "grouping_valid": true
+  },
+  {
+    "architecture": "resnet18",
+    "pretrained_tag": "resnet18.a1_in1k",
+    "pretrained_used": false,
+    "pretrained_cfg": {
+      "url": "https://github.com/huggingface/pytorch-image-models/releases/download/v0.1-rsb-weights/resnet18_a1_0-d63eafa0.pth",
+      "hf_hub_id": "timm/resnet18.a1_in1k",
+      "architecture": "resnet18",
+      "tag": "a1_in1k",
+      "custom_load": false,
+      "input_size": [
+        3,
+        224,
+        224
+      ],
+      "test_input_size": [
+        3,
+        288,
+        288
+      ],
+      "fixed_input_size": false,
+      "interpolation": "bicubic",
+      "crop_pct": 0.95,
+      "test_crop_pct": 1.0,
+      "crop_mode": "center",
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "num_classes": 1000,
+      "pool_size": [
+        7,
+        7
+      ],
+      "first_conv": "conv1",
+      "classifier": "fc",
+      "license": "apache-2.0",
+      "origin_url": "https://github.com/huggingface/pytorch-image-models",
+      "paper_ids": "arXiv:2110.00476"
+    },
+    "parameters_m": 11.181129,
+    "trainable_parameters": 4617,
+    "gmac": 0.592187904,
+    "gmac_tool": "torch.utils.flop_counter.FlopCounterMode, FLOP/2; toán tử được hỗ trợ",
+    "init": "frozen",
+    "shape": [
+      2,
+      9
+    ],
+    "finite": true,
+    "tested_pretrained": false,
+    "grouping_valid": true
+  },
+  {
+    "architecture": "convnext_atto",
+    "pretrained_tag": "convnext_atto.d2_in1k",
+    "pretrained_used": false,
+    "pretrained_cfg": {
+      "url": "https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/convnext_atto_d2-01bb0f51.pth",
+      "hf_hub_id": "timm/convnext_atto.d2_in1k",
+      "architecture": "convnext_atto",
+      "tag": "d2_in1k",
+      "custom_load": false,
+      "input_size": [
+        3,
+        224,
+        224
+      ],
+      "test_input_size": [
+        3,
+        288,
+        288
+      ],
+      "fixed_input_size": false,
+      "interpolation": "bicubic",
+      "crop_pct": 0.875,
+      "test_crop_pct": 0.95,
+      "crop_mode": "center",
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "num_classes": 1000,
+      "pool_size": [
+        7,
+        7
+      ],
+      "first_conv": "stem.0",
+      "classifier": "head.fc",
+      "license": "apache-2.0"
+    },
+    "parameters_m": 3.377409,
+    "trainable_parameters": 3377409,
+    "gmac": 0.1786192,
+    "gmac_tool": "torch.utils.flop_counter.FlopCounterMode, FLOP/2; toán tử được hỗ trợ",
+    "init": "finetune",
+    "shape": [
+      2,
+      9
+    ],
+    "finite": true,
+    "tested_pretrained": false,
+    "grouping_valid": true
+  },
+  {
+    "architecture": "convnext_atto",
+    "pretrained_tag": "convnext_atto.d2_in1k",
+    "pretrained_used": false,
+    "pretrained_cfg": {
+      "url": "https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/convnext_atto_d2-01bb0f51.pth",
+      "hf_hub_id": "timm/convnext_atto.d2_in1k",
+      "architecture": "convnext_atto",
+      "tag": "d2_in1k",
+      "custom_load": false,
+      "input_size": [
+        3,
+        224,
+        224
+      ],
+      "test_input_size": [
+        3,
+        288,
+        288
+      ],
+      "fixed_input_size": false,
+      "interpolation": "bicubic",
+      "crop_pct": 0.875,
+      "test_crop_pct": 0.95,
+      "crop_mode": "center",
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "num_classes": 1000,
+      "pool_size": [
+        7,
+        7
+      ],
+      "first_conv": "stem.0",
+      "classifier": "head.fc",
+      "license": "apache-2.0"
+    },
+    "parameters_m": 3.377409,
+    "trainable_parameters": 2889,
+    "gmac": 0.1786192,
+    "gmac_tool": "torch.utils.flop_counter.FlopCounterMode, FLOP/2; toán tử được hỗ trợ",
+    "init": "frozen",
+    "shape": [
+      2,
+      9
+    ],
+    "finite": true,
+    "tested_pretrained": false,
+    "grouping_valid": true
+  },
+  {
+    "architecture": "deit_tiny_patch16_224",
+    "pretrained_tag": "deit_tiny_patch16_224.fb_in1k",
+    "pretrained_used": false,
+    "pretrained_cfg": {
+      "url": "https://dl.fbaipublicfiles.com/deit/deit_tiny_patch16_224-a1311bcf.pth",
+      "hf_hub_id": "timm/deit_tiny_patch16_224.fb_in1k",
+      "architecture": "deit_tiny_patch16_224",
+      "tag": "fb_in1k",
+      "custom_load": false,
+      "input_size": [
+        3,
+        224,
+        224
+      ],
+      "fixed_input_size": true,
+      "interpolation": "bicubic",
+      "crop_pct": 0.9,
+      "crop_mode": "center",
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "num_classes": 1000,
+      "pool_size": null,
+      "first_conv": "patch_embed.proj",
+      "classifier": "head",
+      "license": "apache-2.0"
+    },
+    "parameters_m": 5.500809,
+    "trainable_parameters": 5500809,
+    "gmac": 0.354485952,
+    "gmac_tool": "torch.utils.flop_counter.FlopCounterMode, FLOP/2; toán tử được hỗ trợ",
+    "init": "finetune",
+    "shape": [
+      2,
+      9
+    ],
+    "finite": true,
+    "tested_pretrained": false,
+    "grouping_valid": true
+  },
+  {
+    "architecture": "deit_tiny_patch16_224",
+    "pretrained_tag": "deit_tiny_patch16_224.fb_in1k",
+    "pretrained_used": false,
+    "pretrained_cfg": {
+      "url": "https://dl.fbaipublicfiles.com/deit/deit_tiny_patch16_224-a1311bcf.pth",
+      "hf_hub_id": "timm/deit_tiny_patch16_224.fb_in1k",
+      "architecture": "deit_tiny_patch16_224",
+      "tag": "fb_in1k",
+      "custom_load": false,
+      "input_size": [
+        3,
+        224,
+        224
+      ],
+      "fixed_input_size": true,
+      "interpolation": "bicubic",
+      "crop_pct": 0.9,
+      "crop_mode": "center",
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "num_classes": 1000,
+      "pool_size": null,
+      "first_conv": "patch_embed.proj",
+      "classifier": "head",
+      "license": "apache-2.0"
+    },
+    "parameters_m": 5.500809,
+    "trainable_parameters": 1737,
+    "gmac": 0.354485952,
+    "gmac_tool": "torch.utils.flop_counter.FlopCounterMode, FLOP/2; toán tử được hỗ trợ",
+    "init": "frozen",
+    "shape": [
+      2,
+      9
+    ],
+    "finite": true,
+    "tested_pretrained": false,
+    "grouping_valid": true
+  },
+  {
+    "architecture": "efficientnet_b0",
+    "pretrained_tag": "efficientnet_b0.ra_in1k",
+    "pretrained_used": false,
+    "pretrained_cfg": {
+      "url": "https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/efficientnet_b0_ra-3dd342df.pth",
+      "hf_hub_id": "timm/efficientnet_b0.ra_in1k",
+      "architecture": "efficientnet_b0",
+      "tag": "ra_in1k",
+      "custom_load": false,
+      "input_size": [
+        3,
+        224,
+        224
+      ],
+      "fixed_input_size": false,
+      "interpolation": "bicubic",
+      "crop_pct": 0.875,
+      "crop_mode": "center",
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "num_classes": 1000,
+      "pool_size": [
+        7,
+        7
+      ],
+      "first_conv": "conv_stem",
+      "classifier": "classifier",
+      "license": "apache-2.0"
+    },
+    "parameters_m": 4.019077,
+    "trainable_parameters": 4019077,
+    "gmac": 0.125996288,
+    "gmac_tool": "torch.utils.flop_counter.FlopCounterMode, FLOP/2; toán tử được hỗ trợ",
+    "init": "finetune",
+    "shape": [
+      2,
+      9
+    ],
+    "finite": true,
+    "tested_pretrained": false,
+    "grouping_valid": true
+  },
+  {
+    "architecture": "efficientnet_b0",
+    "pretrained_tag": "efficientnet_b0.ra_in1k",
+    "pretrained_used": false,
+    "pretrained_cfg": {
+      "url": "https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/efficientnet_b0_ra-3dd342df.pth",
+      "hf_hub_id": "timm/efficientnet_b0.ra_in1k",
+      "architecture": "efficientnet_b0",
+      "tag": "ra_in1k",
+      "custom_load": false,
+      "input_size": [
+        3,
+        224,
+        224
+      ],
+      "fixed_input_size": false,
+      "interpolation": "bicubic",
+      "crop_pct": 0.875,
+      "crop_mode": "center",
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "num_classes": 1000,
+      "pool_size": [
+        7,
+        7
+      ],
+      "first_conv": "conv_stem",
+      "classifier": "classifier",
+      "license": "apache-2.0"
+    },
+    "parameters_m": 4.019077,
+    "trainable_parameters": 11529,
+    "gmac": 0.125996288,
+    "gmac_tool": "torch.utils.flop_counter.FlopCounterMode, FLOP/2; toán tử được hỗ trợ",
+    "init": "frozen",
+    "shape": [
+      2,
+      9
+    ],
+    "finite": true,
+    "tested_pretrained": false,
+    "grouping_valid": true
+  },
+  {
+    "architecture": "mobilenetv3_small_100",
+    "pretrained_tag": "mobilenetv3_small_100.lamb_in1k",
+    "pretrained_used": false,
+    "pretrained_cfg": {
+      "url": "https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/mobilenetv3_small_100_lamb-266a294c.pth",
+      "hf_hub_id": "timm/mobilenetv3_small_100.lamb_in1k",
+      "architecture": "mobilenetv3_small_100",
+      "tag": "lamb_in1k",
+      "custom_load": false,
+      "input_size": [
+        3,
+        224,
+        224
+      ],
+      "fixed_input_size": false,
+      "interpolation": "bicubic",
+      "crop_pct": 0.875,
+      "crop_mode": "center",
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "num_classes": 1000,
+      "pool_size": [
+        7,
+        7
+      ],
+      "first_conv": "conv_stem",
+      "classifier": "classifier",
+      "license": "apache-2.0"
+    },
+    "parameters_m": 1.527081,
+    "trainable_parameters": 1527081,
+    "gmac": 0.018833408,
+    "gmac_tool": "torch.utils.flop_counter.FlopCounterMode, FLOP/2; toán tử được hỗ trợ",
+    "init": "finetune",
+    "shape": [
+      2,
+      9
+    ],
+    "finite": true,
+    "tested_pretrained": false,
+    "grouping_valid": true
+  },
+  {
+    "architecture": "mobilenetv3_small_100",
+    "pretrained_tag": "mobilenetv3_small_100.lamb_in1k",
+    "pretrained_used": false,
+    "pretrained_cfg": {
+      "url": "https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/mobilenetv3_small_100_lamb-266a294c.pth",
+      "hf_hub_id": "timm/mobilenetv3_small_100.lamb_in1k",
+      "architecture": "mobilenetv3_small_100",
+      "tag": "lamb_in1k",
+      "custom_load": false,
+      "input_size": [
+        3,
+        224,
+        224
+      ],
+      "fixed_input_size": false,
+      "interpolation": "bicubic",
+      "crop_pct": 0.875,
+      "crop_mode": "center",
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "num_classes": 1000,
+      "pool_size": [
+        7,
+        7
+      ],
+      "first_conv": "conv_stem",
+      "classifier": "classifier",
+      "license": "apache-2.0"
+    },
+    "parameters_m": 1.527081,
+    "trainable_parameters": 9225,
+    "gmac": 0.018833408,
+    "gmac_tool": "torch.utils.flop_counter.FlopCounterMode, FLOP/2; toán tử được hỗ trợ",
+    "init": "frozen",
+    "shape": [
+      2,
+      9
+    ],
+    "finite": true,
+    "tested_pretrained": false,
+    "grouping_valid": true
+  }
+]
