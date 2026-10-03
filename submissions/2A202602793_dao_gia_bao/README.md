@@ -297,3 +297,16 @@ Checkpoint `best.pt/latest.pt` và logits NPZ được lưu cục bộ sau train
 vào Git**; dữ liệu và cache trọng số cũng không đưa vào Git. Tái lập checkpoint cần
 chạy train; kiểm tra score/grade chỉ cần CSV dự đoán và CSV nhãn nguồn. README gốc,
 GUIDE, RUBRIC, `eval.py`, `starter/` và tests gốc giữ nguyên.
+
+## Kiểm toán hồ sơ hoàn tất
+
+[Checklist theo RUBRIC](evidence/final_audit.md) và [kết quả máy đọc](evidence/stage15.json)
+ghi 13 nhóm kiểm tra đã đạt: 19 history đủ mười epoch/19 biểu đồ, năm backbone,
+ba trục và một kết hợp, chín cấu hình suy luận, workbook đúng từng ô, sáu seed
+test một pass, 38 test gốc và 25 test bài nộp đạt. Các ảnh preview của workbook
+đã được xem cho cả bảy sheet; không tuyên bố đã kiểm tra bằng Excel native.
+
+T07 kết hợp LS với CutMix; CutMix đơn lẻ không cải thiện, nên tiêu chí rubric
+“kết hợp các yếu tố tốt” cần giảng viên cân nhắc. Không tự gán điểm toàn phần A–H
+hoặc điểm thưởng. Hồ sơ ghi rõ các giới hạn, không bổ sung thực nghiệm sau khi
+mở test. Mọi bước đã commit/push tuần tự; manifest cuối giữ SHA-256 sản phẩm.
