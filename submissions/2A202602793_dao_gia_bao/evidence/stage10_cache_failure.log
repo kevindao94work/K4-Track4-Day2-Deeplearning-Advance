@@ -353,7 +353,7 @@ The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
   File "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/code/final_training.py", line 114, in <module>
-    
+
   File "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/code/final_training.py", line 68, in final_training
     assert_integrity(frozen);cfg=config_for(eid,seed)
             ^^^^^^^^
