@@ -1,0 +1,11 @@
+{
+  "p50_ms": 9.994708991143852,
+  "warmups": 10,
+  "iterations": 5,
+  "batch": 1,
+  "gpu": "Apple M4 (MPS)",
+  "dtype": "fp32",
+  "resolution": 128,
+  "preprocessing_included": false,
+  "purpose": "Độ trễ sơ bộ; đo chính thức ở giai đoạn suy luận"
+}

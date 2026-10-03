@@ -113,3 +113,26 @@ suy luận cuối; các thời gian thật sẽ lấy từ log thí nghiệm.
 Để chạy một lần tái lập tách biệt khỏi sản phẩm gốc, đặt `LAB_OUTPUT_DIR` tới
 thư mục mới (notebook dùng `reproduction/`); `LAB_DATA_DIR` có thể chỉ tới dữ liệu
 đã tải. Các biến này chỉ điều khiển đường dẫn.
+
+## So sánh backbone
+
+```bash
+.venv/bin/python submissions/2A202602793_dao_gia_bao/code/workflow.py backbones
+.venv/bin/python submissions/2A202602793_dao_gia_bao/code/workflow.py audit-backbones
+```
+
+Lệnh đầu chạy lần lượt B01–B05 bằng cùng `train.run`; lần chạy đã hoàn thành
+được nạp từ log, lần gián đoạn tiếp tục checkpoint. Mỗi ID giữ cấu hình bất biến.
+Trong máy đã có đủ trọng số cache, có thể đặt `HF_HUB_OFFLINE=1` để tránh kiểm tra
+metadata qua mạng. Máy mới cần mạng để tải đúng tag tiền huấn luyện.
+
+`tables/Backbones.csv` được sinh trực tiếp từ summary. `training_seconds_per_epoch`
+chỉ tính huấn luyện, còn `seconds_per_epoch_train_val` gồm huấn luyện và validation;
+cả hai chưa tính ghi biểu đồ/checkpoint hoặc tải trọng số. Độ trễ trong bảng này
+chỉ là sàng lọc **10 warmup/5 lần đo**, batch 1, FP32, không tiền xử lý. Benchmark
+suy luận chính thức sẽ dùng ít nhất 50 lần đo riêng.
+
+`configs/backbone_choice.json` và `evidence/backbone_selection.md` lưu lựa chọn
+theo macro-F1 validation; `evidence/stage6.json` đối chiếu bảng, log, CSV và biểu đồ.
+Đây là sàng lọc một seed. Các công thức tiền huấn luyện upstream khác nhau, nên
+không diễn giải thứ hạng này như tác động thuần túy của kiến trúc.

@@ -1,0 +1,88 @@
+{
+  "passed": true,
+  "controlled_fields": {
+    "seed": 0,
+    "fold": 0,
+    "init": "finetune",
+    "pretrained": true,
+    "drop_rate": 0.0,
+    "img_size": 128,
+    "aug": "basic",
+    "sampler": null,
+    "mix": null,
+    "mix_alpha": 1.0,
+    "loss": "ce",
+    "label_smoothing": 0.0,
+    "focal_gamma": 2.0,
+    "class_weight_beta": null,
+    "epochs": 10,
+    "batch_size": 32,
+    "lr_backbone": 0.0001,
+    "lr_head": 0.001,
+    "weight_decay": 0.05,
+    "warmup_epochs": 1.0,
+    "ema_decay": null,
+    "amp": false,
+    "num_workers": 2,
+    "images_dir": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/data/images",
+    "labels_dir": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/data/labels",
+    "out_dir": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/logs",
+    "pred_dir": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/predictions",
+    "save_test_predictions": false,
+    "curves_dir": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/curves",
+    "optimizer": "adamw",
+    "scheduler": "cosine",
+    "momentum": 0.9,
+    "grad_clip": null,
+    "device": "auto",
+    "crop_pct": 0.875,
+    "interpolation": "bicubic",
+    "resume": true,
+    "smoke_train": 0,
+    "smoke_val": 0,
+    "freeze_file": null
+  },
+  "runs": [
+    {
+      "exp_id": "B01_resnet18",
+      "epochs": 10,
+      "val_n": 3501,
+      "macro_f1_val": 0.7461375578778984,
+      "curve": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/curves/B01_resnet18_seed0_resnet18.png",
+      "test_evaluated": false
+    },
+    {
+      "exp_id": "B02_convnext_atto",
+      "epochs": 10,
+      "val_n": 3501,
+      "macro_f1_val": 0.9270858830866123,
+      "curve": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/curves/B02_convnext_atto_seed0_convnext_atto.png",
+      "test_evaluated": false
+    },
+    {
+      "exp_id": "B03_deit_tiny",
+      "epochs": 10,
+      "val_n": 3501,
+      "macro_f1_val": 0.9102451516648173,
+      "curve": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/curves/B03_deit_tiny_seed0_deit_tiny_patch16_224.png",
+      "test_evaluated": false
+    },
+    {
+      "exp_id": "B04_efficientnet_b0",
+      "epochs": 10,
+      "val_n": 3501,
+      "macro_f1_val": 0.8845617666478939,
+      "curve": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/curves/B04_efficientnet_b0_seed0_efficientnet_b0.png",
+      "test_evaluated": false
+    },
+    {
+      "exp_id": "B05_mobilenetv3_small",
+      "epochs": 10,
+      "val_n": 3501,
+      "macro_f1_val": 0.8870327366071799,
+      "curve": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/curves/B05_mobilenetv3_small_seed0_mobilenetv3_small_100.png",
+      "test_evaluated": false
+    }
+  ],
+  "evaluator_source": "eval.py nguyên bản; đối chiếu CSV, không chạy test"
+}
