@@ -1,0 +1,23 @@
+{
+  "seed": 0,
+  "timm": "1.0.22",
+  "source_split": "train",
+  "filenames": [
+    "20170718-101402-2.jpg",
+    "20170714-142019-3.jpg",
+    "20170920-160401-3.jpg",
+    "20170913-110647-1.jpg",
+    "20170727-113049-1.jpg",
+    "20171109-175921-2.jpg",
+    "20171121-072215-1.jpg",
+    "20170210-142531-0.jpg",
+    "20171212-094343-1.jpg"
+  ],
+  "native_timm_head_std": 0.19179542362689972,
+  "native_timm_ce_128": 7.59733247756958,
+  "cpu_mps_max_logit_error": 3.288686275482178e-05,
+  "controlled_head_std": 0.009979353286325932,
+  "controlled_ce_128": 2.3488502502441406,
+  "backbone_identical": true,
+  "cause": "Khởi tạo Linear theo fan-out trong _init_weight_goog của timm, 9 lớp làm logit lớn"
+}

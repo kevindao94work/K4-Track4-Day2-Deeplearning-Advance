@@ -12,6 +12,7 @@ from model import SCREENING_MODELS, build_model, classifier, param_groups, model
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--pretrained', action='store_true')
+    ap.add_argument('--out')
     args = ap.parse_args()
     torch.set_num_threads(4)
     rows = []
@@ -44,6 +45,8 @@ def main():
             rows.append(info)
             print(name, init, info['parameters_m'], info['gmac'], flush=True)
     out = Path(__file__).resolve().parents[1] / ('evidence/stage2_pretrained.json' if args.pretrained else 'evidence/stage2.json')
+    if args.out:
+        out = Path(args.out)
     out.write_text(json.dumps(rows, ensure_ascii=False, indent=2))
 
 

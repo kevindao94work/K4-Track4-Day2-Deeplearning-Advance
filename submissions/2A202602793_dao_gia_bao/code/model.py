@@ -2,10 +2,13 @@
 from __future__ import annotations
 
 import copy
+import hashlib
+from pathlib import Path
 from types import MethodType
 
 import timm
 import torch
+from huggingface_hub import try_to_load_from_cache
 from torch import nn
 from torch.utils.flop_counter import FlopCounterMode
 
@@ -55,10 +58,27 @@ def build_model(name: str, pretrained: bool = True, num_classes: int = 9,
         kw['img_size'] = img_size
     model = timm.create_model(name, pretrained=pretrained and init != 'scratch',
                               num_classes=num_classes, drop_rate=drop_rate, **kw)
+    # Một số timm MobileNet/EfficientNet khởi tạo theo fan-out: 9 lớp làm logit
+    # ban đầu quá lớn. Chuẩn hóa cùng cách khởi tạo head cho mọi backbone.
+    for module in classifier(model).modules():
+        if isinstance(module, (nn.Linear, nn.Conv2d)):
+            nn.init.normal_(module.weight, std=.01)
+            if module.bias is not None:
+                nn.init.zeros_(module.bias)
+    model.lab_head_init = 'normal(mean=0, std=0.01), bias=0'
     model.lab_architecture = architecture
     cfg = model.pretrained_cfg
     model.lab_pretrained_tag = architecture + ('.' + cfg['tag'] if cfg.get('tag') else '')
     model.lab_pretrained_used = bool(pretrained and init != 'scratch')
+    model.lab_pretrained_source = None
+    if model.lab_pretrained_used and cfg.get('hf_hub_id'):
+        for filename in ['model.safetensors', 'pytorch_model.bin']:
+            cached = try_to_load_from_cache(cfg['hf_hub_id'], filename)
+            if isinstance(cached, str) and Path(cached).is_file():
+                model.lab_pretrained_source = {'repo_id': cfg['hf_hub_id'], 'filename': filename,
+                    'revision': Path(cached).parent.name,
+                    'sha256': hashlib.sha256(Path(cached).read_bytes()).hexdigest()}
+                break
     if init == 'frozen':
         freeze_backbone(model)
     return model
@@ -122,6 +142,8 @@ def count_gmacs(model, img_size: int = 224) -> float:
 
 def model_metadata(model, img_size=224):
     return {'architecture': model.lab_architecture, 'pretrained_tag': model.lab_pretrained_tag,
+            'head_init': model.lab_head_init,
+            'pretrained_source': model.lab_pretrained_source,
             'pretrained_used': model.lab_pretrained_used,
             'pretrained_cfg': model.pretrained_cfg,
             'parameters_m': count_params(model), 'trainable_parameters': count_trainable(model),

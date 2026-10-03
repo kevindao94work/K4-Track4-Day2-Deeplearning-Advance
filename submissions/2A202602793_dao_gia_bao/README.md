@@ -84,3 +84,32 @@ kiểm tra kỹ thuật trên tập nhỏ, không dùng để chọn cấu hình
 bao gồm nạp lại checkpoint, backbone đóng băng không đổi, và tiếp tục CPU cho
 trọng số khớp chính xác với lần chạy không gián đoạn. Test mặc định bị niêm phong;
 phải có cấu hình chốt trước khi xuất dự đoán test.
+
+## EDA và kiểm tra trước khi train
+
+```bash
+.venv/bin/python submissions/2A202602793_dao_gia_bao/code/validate_pipeline.py
+```
+
+Bằng chứng ở `evidence/stage5.json`, các bảng đếm lớp, ảnh phân bố, 27 ảnh train
+mẫu, ảnh augmentation/Mixup/CutMix và lịch sử quá khớp một batch. Việc xem mẫu,
+kiểm tra kích thước/kênh chỉ dùng ảnh train; test chỉ được kiểm tra cấu trúc split
+và tồn tại file. Toàn bộ 10.501 ảnh train là RGB 256×256. `Negative` chiếm 52,01%
+tổng split, gấp khoảng 9,02 lần lớp nhỏ nhất.
+
+Kiểm tra ban đầu phát hiện head MobileNet của timm dùng khởi tạo theo fan-out,
+đưa CE lên 7,60 với 9 lớp. CPU và MPS khớp gần nhau, và đầu vào RGB/normalization
+đúng. Factory nay dùng **cùng normal(0, 0,01), bias=0 cho mọi head mới**.
+Bằng chứng thất bại ban đầu được giữ ở `evidence/stage5_initial_failure.log`;
+forward và nhóm tham số của cả năm model đã được kiểm tra lại sau sửa.
+
+Đo thử batch tính toán trên M4 cho thấy 128×128 giảm chi phí so với 224×224.
+Công thức sàng lọc sẽ dùng **10 epoch, batch 32, 128×128, FP32**, giữ mọi yếu tố
+này giống nhau cho năm backbone. Đây là giảm độ phân giải theo GUIDE mục 7 để
+hoàn thành toàn bộ thiết kế trên phần cứng hiện có. Bảng `compute_probe.csv` là
+ước lượng tính toán từ batch giả lập, không phải thời gian epoch hay độ trễ
+suy luận cuối; các thời gian thật sẽ lấy từ log thí nghiệm.
+
+Để chạy một lần tái lập tách biệt khỏi sản phẩm gốc, đặt `LAB_OUTPUT_DIR` tới
+thư mục mới (notebook dùng `reproduction/`); `LAB_DATA_DIR` có thể chỉ tới dữ liệu
+đã tải. Các biến này chỉ điều khiển đường dẫn.

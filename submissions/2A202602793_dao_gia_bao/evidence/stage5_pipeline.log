@@ -1,0 +1,90 @@
+{
+  "fold": 0,
+  "n": {
+    "train": 10501,
+    "val": 3501,
+    "test": 3507
+  },
+  "per_class": {
+    "train": [
+      675,
+      637,
+      618,
+      613,
+      637,
+      605,
+      644,
+      609,
+      5463
+    ],
+    "val": [
+      225,
+      213,
+      206,
+      204,
+      212,
+      202,
+      215,
+      203,
+      1821
+    ],
+    "test": [
+      226,
+      213,
+      207,
+      205,
+      213,
+      202,
+      215,
+      204,
+      1822
+    ]
+  },
+  "class_names": [
+    "Chinee apple",
+    "Lantana",
+    "Parkinsonia",
+    "Parthenium",
+    "Prickly acacia",
+    "Rubber vine",
+    "Siam weed",
+    "Snake weed",
+    "Negative"
+  ],
+  "overlap": {
+    "train_val": 0,
+    "train_test": 0,
+    "val_test": 0
+  },
+  "union": 17509,
+  "missing": 0,
+  "num_classes": 9,
+  "annotation_conflicts": {
+    "train": [
+      {
+        "Filename": "20170714-110407-3.jpg",
+        "split_label": 0,
+        "labels_csv_label": 1
+      }
+    ],
+    "val": [],
+    "test": []
+  },
+  "csv_sha256": {
+    "labels.csv": "6fb95b89fd9d384f94e185a5cab6c5da7c987649399c90618ecc60acfb0112eb",
+    "train_subset0.csv": "a2e63f561a545837c8cabaa276a957ccf1293ec985c9d8fbc49d67b4fd5abdb2",
+    "val_subset0.csv": "1fa70a03a68def06c921a1dd7f0b53e96490f6dfad51d7d423bb145161ebc478",
+    "test_subset0.csv": "fb212793b988bc0455aae2e48cb9eb3168014c2f47fbdb93f5f1e284e0974f75"
+  }
+}
+{"backbone": "resnet18.a1_in1k", "resolution": 224, "batch_size": 32, "dtype": "fp32", "train_batch_mean_seconds": 0.22922812500037254, "estimated_train_epoch_seconds_no_io": 75.1868250001222, "warmups": 3, "timed_batches": 5, "purpose": "Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"}
+{"backbone": "resnet18.a1_in1k", "resolution": 128, "batch_size": 32, "dtype": "fp32", "train_batch_mean_seconds": 0.09671205000486224, "estimated_train_epoch_seconds_no_io": 31.721552401594817, "warmups": 3, "timed_batches": 5, "purpose": "Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"}
+{"backbone": "convnext_atto.d2_in1k", "resolution": 224, "batch_size": 32, "dtype": "fp32", "train_batch_mean_seconds": 0.336444766598288, "estimated_train_epoch_seconds_no_io": 110.35388344423846, "warmups": 3, "timed_batches": 5, "purpose": "Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"}
+{"backbone": "convnext_atto.d2_in1k", "resolution": 128, "batch_size": 32, "dtype": "fp32", "train_batch_mean_seconds": 0.09882935000350698, "estimated_train_epoch_seconds_no_io": 32.41602680115029, "warmups": 3, "timed_batches": 5, "purpose": "Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"}
+{"backbone": "deit_tiny_patch16_224.fb_in1k", "resolution": 224, "batch_size": 32, "dtype": "fp32", "train_batch_mean_seconds": 0.2908411248004995, "estimated_train_epoch_seconds_no_io": 95.39588893456384, "warmups": 3, "timed_batches": 5, "purpose": "Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"}
+{"backbone": "deit_tiny_patch16_224.fb_in1k", "resolution": 128, "batch_size": 32, "dtype": "fp32", "train_batch_mean_seconds": 0.12142261682311073, "estimated_train_epoch_seconds_no_io": 39.82661831798032, "warmups": 3, "timed_batches": 5, "purpose": "Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"}
+{"backbone": "efficientnet_b0.ra_in1k", "resolution": 224, "batch_size": 32, "dtype": "fp32", "train_batch_mean_seconds": 0.43183739999076354, "estimated_train_epoch_seconds_no_io": 141.64266719697045, "warmups": 3, "timed_batches": 5, "purpose": "Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"}
+{"backbone": "efficientnet_b0.ra_in1k", "resolution": 128, "batch_size": 32, "dtype": "fp32", "train_batch_mean_seconds": 0.21599376681260765, "estimated_train_epoch_seconds_no_io": 70.8459555145353, "warmups": 3, "timed_batches": 5, "purpose": "Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"}
+{"backbone": "mobilenetv3_small_100.lamb_in1k", "resolution": 224, "batch_size": 32, "dtype": "fp32", "train_batch_mean_seconds": 0.14323878360446543, "estimated_train_epoch_seconds_no_io": 46.982321022264664, "warmups": 3, "timed_batches": 5, "purpose": "Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"}
+{"backbone": "mobilenetv3_small_100.lamb_in1k", "resolution": 128, "batch_size": 32, "dtype": "fp32", "train_batch_mean_seconds": 0.0916506918030791, "estimated_train_epoch_seconds_no_io": 30.061426911409942, "warmups": 3, "timed_batches": 5, "purpose": "Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"}
+EDA và kiểm tra pipeline đạt

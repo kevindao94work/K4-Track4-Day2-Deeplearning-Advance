@@ -1,0 +1,298 @@
+{
+  "split": {
+    "fold": 0,
+    "n": {
+      "train": 10501,
+      "val": 3501,
+      "test": 3507
+    },
+    "per_class": {
+      "train": [
+        675,
+        637,
+        618,
+        613,
+        637,
+        605,
+        644,
+        609,
+        5463
+      ],
+      "val": [
+        225,
+        213,
+        206,
+        204,
+        212,
+        202,
+        215,
+        203,
+        1821
+      ],
+      "test": [
+        226,
+        213,
+        207,
+        205,
+        213,
+        202,
+        215,
+        204,
+        1822
+      ]
+    },
+    "class_names": [
+      "Chinee apple",
+      "Lantana",
+      "Parkinsonia",
+      "Parthenium",
+      "Prickly acacia",
+      "Rubber vine",
+      "Siam weed",
+      "Snake weed",
+      "Negative"
+    ],
+    "overlap": {
+      "train_val": 0,
+      "train_test": 0,
+      "val_test": 0
+    },
+    "union": 17509,
+    "missing": 0,
+    "num_classes": 9,
+    "annotation_conflicts": {
+      "train": [
+        {
+          "Filename": "20170714-110407-3.jpg",
+          "split_label": 0,
+          "labels_csv_label": 1
+        }
+      ],
+      "val": [],
+      "test": []
+    },
+    "csv_sha256": {
+      "labels.csv": "6fb95b89fd9d384f94e185a5cab6c5da7c987649399c90618ecc60acfb0112eb",
+      "train_subset0.csv": "a2e63f561a545837c8cabaa276a957ccf1293ec985c9d8fbc49d67b4fd5abdb2",
+      "val_subset0.csv": "1fa70a03a68def06c921a1dd7f0b53e96490f6dfad51d7d423bb145161ebc478",
+      "test_subset0.csv": "fb212793b988bc0455aae2e48cb9eb3168014c2f47fbdb93f5f1e284e0974f75"
+    }
+  },
+  "eda": {
+    "image_dimensions_train": {
+      "(256, 256)": 10501
+    },
+    "image_modes_train": {
+      "RGB": 10501
+    },
+    "negative_fraction": 0.5200753897995317,
+    "largest_smallest_ratio": 9.024777006937562,
+    "samples_per_class": 3,
+    "visualized_split": "train",
+    "mixed_visualizations": [
+      {
+        "mode": "mixup",
+        "lambda": 0.44912526447830964
+      },
+      {
+        "mode": "cutmix",
+        "lambda": 0.5556640625
+      }
+    ]
+  },
+  "sanity": {
+    "initial_ce": 2.3488497734069824,
+    "reference_ln9": 2.1972245773362196,
+    "overfit": {
+      "step": 1,
+      "loss": 0.01191684603691101,
+      "top1": 1.0
+    },
+    "filenames": [
+      "20170718-101402-2.jpg",
+      "20170714-142019-3.jpg",
+      "20170920-160401-3.jpg",
+      "20170913-110647-1.jpg",
+      "20170727-113049-1.jpg",
+      "20171109-175921-2.jpg",
+      "20171121-072215-1.jpg",
+      "20170210-142531-0.jpg",
+      "20171212-094343-1.jpg"
+    ],
+    "split": "train",
+    "configuration": {
+      "exp_id": "SANITY_one_batch",
+      "seed": 0,
+      "fold": 0,
+      "backbone": "resnet50",
+      "init": "frozen",
+      "pretrained": true,
+      "drop_rate": 0.0,
+      "img_size": 128,
+      "aug": "basic",
+      "sampler": null,
+      "mix": null,
+      "mix_alpha": 1.0,
+      "loss": "ce",
+      "label_smoothing": 0.0,
+      "focal_gamma": 2.0,
+      "class_weight_beta": null,
+      "epochs": 400,
+      "batch_size": 9,
+      "lr_backbone": 0.0001,
+      "lr_head": 0.02,
+      "weight_decay": 0,
+      "warmup_epochs": 0,
+      "ema_decay": null,
+      "amp": false,
+      "num_workers": 2,
+      "images_dir": "data/images",
+      "labels_dir": "data/labels",
+      "out_dir": "runs",
+      "pred_dir": "predictions",
+      "save_test_predictions": false,
+      "curves_dir": "curves",
+      "optimizer": "adamw",
+      "scheduler": "none",
+      "momentum": 0.9,
+      "grad_clip": null,
+      "device": "auto",
+      "crop_pct": 0.875,
+      "interpolation": "bicubic",
+      "resume": true,
+      "smoke_train": 0,
+      "smoke_val": 0,
+      "freeze_file": null
+    },
+    "versions": {
+      "python": "3.12.7",
+      "torch": "2.6.0",
+      "timm": "1.0.22",
+      "numpy": "1.26.4",
+      "pandas": "2.2.2",
+      "platform": "macOS-27.2-arm64-arm-64bit",
+      "device": "mps",
+      "gpu": "Apple M4 (MPS)",
+      "threads": 4,
+      "git_commit": "e44cb5ceb77f0393b1ff359a6359cfbdc0b5d7e0",
+      "code_sha256": {
+        "dataset.py": "fded0c354a0740c2205482175441a052a840d7ebec3ce5760d2d6538101c7aec",
+        "model.py": "9fba8e214bf750ea663a4f7463dbdd7f838e96d08edb0ef29e10dda96398d1f1",
+        "losses.py": "64d9960fe1950dcf516ad3c73822b44f7e3d63dc1fcbdc5e41f1a28fcd4aa5dc",
+        "train.py": "f7f082ef18df14bec453244cdf2e4bd9a1024f922961f1d39af097b3cee5d450"
+      }
+    }
+  },
+  "compute_probe": [
+    {
+      "backbone": "resnet18.a1_in1k",
+      "resolution": 224,
+      "batch_size": 32,
+      "dtype": "fp32",
+      "train_batch_mean_seconds": 0.22922812500037254,
+      "estimated_train_epoch_seconds_no_io": 75.1868250001222,
+      "warmups": 3,
+      "timed_batches": 5,
+      "purpose": "Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"
+    },
+    {
+      "backbone": "resnet18.a1_in1k",
+      "resolution": 128,
+      "batch_size": 32,
+      "dtype": "fp32",
+      "train_batch_mean_seconds": 0.09671205000486224,
+      "estimated_train_epoch_seconds_no_io": 31.721552401594817,
+      "warmups": 3,
+      "timed_batches": 5,
+      "purpose": "Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"
+    },
+    {
+      "backbone": "convnext_atto.d2_in1k",
+      "resolution": 224,
+      "batch_size": 32,
+      "dtype": "fp32",
+      "train_batch_mean_seconds": 0.336444766598288,
+      "estimated_train_epoch_seconds_no_io": 110.35388344423846,
+      "warmups": 3,
+      "timed_batches": 5,
+      "purpose": "Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"
+    },
+    {
+      "backbone": "convnext_atto.d2_in1k",
+      "resolution": 128,
+      "batch_size": 32,
+      "dtype": "fp32",
+      "train_batch_mean_seconds": 0.09882935000350698,
+      "estimated_train_epoch_seconds_no_io": 32.41602680115029,
+      "warmups": 3,
+      "timed_batches": 5,
+      "purpose": "Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"
+    },
+    {
+      "backbone": "deit_tiny_patch16_224.fb_in1k",
+      "resolution": 224,
+      "batch_size": 32,
+      "dtype": "fp32",
+      "train_batch_mean_seconds": 0.2908411248004995,
+      "estimated_train_epoch_seconds_no_io": 95.39588893456384,
+      "warmups": 3,
+      "timed_batches": 5,
+      "purpose": "Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"
+    },
+    {
+      "backbone": "deit_tiny_patch16_224.fb_in1k",
+      "resolution": 128,
+      "batch_size": 32,
+      "dtype": "fp32",
+      "train_batch_mean_seconds": 0.12142261682311073,
+      "estimated_train_epoch_seconds_no_io": 39.82661831798032,
+      "warmups": 3,
+      "timed_batches": 5,
+      "purpose": "Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"
+    },
+    {
+      "backbone": "efficientnet_b0.ra_in1k",
+      "resolution": 224,
+      "batch_size": 32,
+      "dtype": "fp32",
+      "train_batch_mean_seconds": 0.43183739999076354,
+      "estimated_train_epoch_seconds_no_io": 141.64266719697045,
+      "warmups": 3,
+      "timed_batches": 5,
+      "purpose": "Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"
+    },
+    {
+      "backbone": "efficientnet_b0.ra_in1k",
+      "resolution": 128,
+      "batch_size": 32,
+      "dtype": "fp32",
+      "train_batch_mean_seconds": 0.21599376681260765,
+      "estimated_train_epoch_seconds_no_io": 70.8459555145353,
+      "warmups": 3,
+      "timed_batches": 5,
+      "purpose": "Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"
+    },
+    {
+      "backbone": "mobilenetv3_small_100.lamb_in1k",
+      "resolution": 224,
+      "batch_size": 32,
+      "dtype": "fp32",
+      "train_batch_mean_seconds": 0.14323878360446543,
+      "estimated_train_epoch_seconds_no_io": 46.982321022264664,
+      "warmups": 3,
+      "timed_batches": 5,
+      "purpose": "Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"
+    },
+    {
+      "backbone": "mobilenetv3_small_100.lamb_in1k",
+      "resolution": 128,
+      "batch_size": 32,
+      "dtype": "fp32",
+      "train_batch_mean_seconds": 0.0916506918030791,
+      "estimated_train_epoch_seconds_no_io": 30.061426911409942,
+      "warmups": 3,
+      "timed_batches": 5,
+      "purpose": "Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"
+    }
+  ]
+}

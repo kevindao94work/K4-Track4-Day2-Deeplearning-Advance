@@ -1,0 +1,11 @@
+backbone,resolution,batch_size,dtype,train_batch_mean_seconds,estimated_train_epoch_seconds_no_io,warmups,timed_batches,purpose
+resnet18.a1_in1k,224,32,fp32,0.22922812500037254,75.1868250001222,3,5,"Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"
+resnet18.a1_in1k,128,32,fp32,0.09671205000486224,31.721552401594817,3,5,"Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"
+convnext_atto.d2_in1k,224,32,fp32,0.336444766598288,110.35388344423846,3,5,"Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"
+convnext_atto.d2_in1k,128,32,fp32,0.09882935000350698,32.41602680115029,3,5,"Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"
+deit_tiny_patch16_224.fb_in1k,224,32,fp32,0.2908411248004995,95.39588893456384,3,5,"Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"
+deit_tiny_patch16_224.fb_in1k,128,32,fp32,0.12142261682311073,39.82661831798032,3,5,"Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"
+efficientnet_b0.ra_in1k,224,32,fp32,0.43183739999076354,141.64266719697045,3,5,"Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"
+efficientnet_b0.ra_in1k,128,32,fp32,0.21599376681260765,70.8459555145353,3,5,"Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"
+mobilenetv3_small_100.lamb_in1k,224,32,fp32,0.14323878360446543,46.982321022264664,3,5,"Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"
+mobilenetv3_small_100.lamb_in1k,128,32,fp32,0.0916506918030791,30.061426911409942,3,5,"Ước lượng tính toán, không phải đo độ trễ suy luận hay điểm model"
