@@ -13,7 +13,7 @@ import torch
 
 from paths import CODE, SUB, DATA, REPO
 from model import build_model, SCREENING_MODELS
-from train import Config, run, resolve_device, synchronize, hardware_name, write_json
+from train import Config, run, resolve_device, synchronize, hardware_name, write_json, frozen_recipe
 from eval import read_pred, check_against_csv, compute_metrics
 
 B_IDS=['B01_resnet18','B02_convnext_atto','B03_deit_tiny','B04_efficientnet_b0','B05_mobilenetv3_small']
@@ -146,12 +146,85 @@ def backbones():
     return choice
 
 
+def training():
+    if not json.loads((SUB/'evidence/stage6.json').read_text())['passed']:
+        raise ValueError('Chưa đạt cổng backbone')
+    choice=json.loads((SUB/'configs/backbone_choice.json').read_text())
+    baseline=replace(baseline_config('T00_screen'),backbone=choice['config']['backbone'])
+    plans=[('T00_screen','Mốc','Không đổi',{}),
+           ('T01_frozen','A','Đóng băng backbone',{'init':'frozen'}),
+           ('T02_scratch','A','Khởi tạo ngẫu nhiên',{'init':'scratch','pretrained':False}),
+           ('T03_color','B','Thêm ColorJitter',{'aug':'color'}),
+           ('T04_cutmix','B','Thêm CutMix alpha=1',{'mix':'cutmix'}),
+           ('T05_ls','C','Label smoothing epsilon=0,1',{'loss':'ls','label_smoothing':.1}),
+           ('T06_focal','C','Focal gamma=2',{'loss':'focal','focal_gamma':2.}),
+           ('T07_cutmix_ls','B+C','CutMix alpha=1 + label smoothing 0,1',
+            {'mix':'cutmix','loss':'ls','label_smoothing':.1})]
+    write_json(SUB/'configs/training_plan.json',{'selection_split':'val','seed':0,
+        'baseline_recipe':frozen_recipe(baseline),'experiments':[
+            {'exp_id':eid,'axis':axis,'difference':desc,'overrides':changes}
+            for eid,axis,desc,changes in plans],
+        'note':'Ba trục có mốc chung và các giá trị khác; T07 kiểm tra tương tác CutMix/LS kể cả khi một yếu tố đơn lẻ không cải thiện.'})
+    rows=[];summaries=[]
+    for eid,axis,description,changes in plans:
+        cfg=replace(baseline,exp_id=eid,**changes)
+        differences={k:v for k,v in frozen_recipe(cfg).items() if frozen_recipe(baseline)[k]!=v}
+        if differences!={k:v for k,v in changes.items() if frozen_recipe(baseline)[k]!=v}:
+            raise ValueError('Có yếu tố thay đổi ngoài kế hoạch')
+        summary=run(cfg)
+        if summary['val']['n']!=3501 or summary['epochs_completed']!=10 or summary['test_evaluated']:
+            raise ValueError('Ablation phải đủ epoch/val và chưa suy luận test')
+        pred=read_pred(SUB/'predictions'/f'{eid}_seed0_val.csv')
+        check_against_csv(pred,DATA/'labels/val_subset0.csv','val')
+        m=compute_metrics(pred.y_true,pred.y_pred,pred.probs)
+        if abs(m['macro_f1']-summary['val']['macro_f1'])>1e-12:raise ValueError('CSV/log lệch')
+        summaries.append(summary)
+        rows.append({'exp_id':eid,'backbone':cfg.backbone,'changed_axis':axis,
+                     'difference_from_T00':description,'seed':0,'macro_f1_val':m['macro_f1'],
+                     'top1_val':m['top1'],'delta_vs_T00':m['macro_f1']-rows[0]['macro_f1_val'] if rows else 0.,
+                     'chinee_apple_f1_val':m['f1'][0],'snake_weed_f1_val':m['f1'][7],
+                     'ece_val':m['ece'],'best_epoch':summary['best_epoch'],
+                     'training_seconds_per_epoch':summary['training_seconds_per_epoch'],
+                     'notes':'Một seed; cần đối chiếu nhiễu seed ở chung kết trước khẳng định cải thiện.'})
+        pd.DataFrame(rows).to_csv(SUB/'tables/Training.csv',index=False)
+    ordered=sorted(rows,key=lambda r:-r['macro_f1_val'])
+    selected=next(s for s in summaries if s['exp_id']==ordered[0]['exp_id'])
+    record={'source_exp_id':selected['exp_id'],'config':selected['config'],
+            'macro_f1_val':selected['val']['macro_f1'],'selection_split':'val',
+            'checkpoint':selected['best_checkpoint'],'checkpoint_sha256':selected['checkpoint_sha256'],
+            'reason':'Macro-F1 validation cao nhất trong kế hoạch đã định; chỉ một seed sàng lọc.',
+            'all_results':ordered}
+    write_json(SUB/'configs/training_choice.json',record)
+    write_json(SUB/'evidence/stage7.json',{'passed':True,'axes':['A','B','C'],
+        'values_per_axis':{'A':['finetune','frozen','scratch'],'B':['basic','color','cutmix'],
+                           'C':['ce','label_smoothing','focal']},'combination':'T07_cutmix_ls',
+        'runs':[{'exp_id':s['exp_id'],'epochs':s['epochs_completed'],'curve':s['curve'],
+                 'val_n':s['val']['n'],'test_evaluated':False} for s in summaries]})
+    import matplotlib.pyplot as plt
+    fig,ax=plt.subplots(figsize=(10,5));ax.bar([r['exp_id'] for r in rows],[r['macro_f1_val'] for r in rows])
+    ax.set_ylabel('Macro-F1 validation');ax.set_title('Ablation ba trục và kết hợp — seed 0')
+    ax.tick_params(axis='x',rotation=35);ax.grid(axis='y',alpha=.2)
+    fig.tight_layout();fig.savefig(SUB/'evidence/training_validation.png',dpi=160);plt.close(fig)
+    lines=['# Ablation công thức huấn luyện','',
+           '| ID | Trục | Thay đổi | Macro-F1 val | Δ so mốc | F1 Chinee | F1 Snake |',
+           '|---|---|---|---:|---:|---:|---:|']
+    lines += [f"| {r['exp_id']} | {r['changed_axis']} | {r['difference_from_T00']} | {r['macro_f1_val']:.4f} | {r['delta_vs_T00']:+.4f} | {r['chinee_apple_f1_val']:.4f} | {r['snake_weed_f1_val']:.4f} |" for r in rows]
+    lines += ['',f"Chọn {selected['exp_id']} dựa trên toàn bộ validation; test còn niêm phong.",
+              'Mỗi so sánh đơn giữ các yếu tố khác như mốc; T07 được khai báo là kết hợp hai trục.',
+              'Sàng lọc một seed chưa đo nhiễu; các delta nhỏ không đủ để khẳng định ưu thế tổng quát.',
+              'Tối ưu truy cập Dataset từ iloc sang cột cache giữ chính xác tensor/nhãn/augmentation (loader_equivalence.json). Tất cả ablation dùng cùng phiên bản này; thời gian đọc dữ liệu không so trực tiếp với giai đoạn backbone.']
+    (SUB/'evidence/training_selection.md').write_text('\n'.join(lines)+'\n')
+    print(json.dumps(record,ensure_ascii=False),flush=True)
+    return record
+
+
 def main():
     ap=argparse.ArgumentParser(description='Quy trình Lab Day 2 theo từng giai đoạn')
-    ap.add_argument('stage',choices=['backbones','audit-backbones'])
+    ap.add_argument('stage',choices=['backbones','audit-backbones','training'])
     args=ap.parse_args()
     if args.stage=='backbones': backbones()
     elif args.stage=='audit-backbones': print(json.dumps(audit_backbones(),ensure_ascii=False))
+    elif args.stage=='training':training()
 
 
 if __name__=='__main__':main()

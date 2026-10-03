@@ -160,6 +160,10 @@ class DeepWeedsDataset(Dataset):
     def __init__(self, df: pd.DataFrame, images_dir: str | Path, transform=None):
         validate_frame(df, 'Dataset')
         self.df = df.copy(deep=True).reset_index(drop=True)
+        # pandas sao chép attrs khi tạo Series qua iloc; metadata split lớn không
+        # cần lặp lại cho mỗi ảnh. Cache cột, giữ nguyên thứ tự và nhãn nguồn.
+        self.filenames = self.df.Filename.astype(str).to_numpy(copy=True)
+        self.targets = self.df.Label.to_numpy(dtype=np.int64, copy=True)
         self.images_dir = Path(images_dir)
         self.transform = transform
 
@@ -167,12 +171,12 @@ class DeepWeedsDataset(Dataset):
         return len(self.df)
 
     def __getitem__(self, i: int):
-        row = self.df.iloc[i]
-        with Image.open(self.images_dir / row.Filename) as im:
+        filename = str(self.filenames[i])
+        with Image.open(self.images_dir / filename) as im:
             image = im.convert('RGB')
         if self.transform is not None:
             image = self.transform(image)
-        return image, int(row.Label), str(row.Filename)
+        return image, int(self.targets[i]), filename
 
 
 def make_loader(df: pd.DataFrame, images_dir: str | Path, transform, batch_size: int,

@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "split": "train",
+      "images_checked": 9,
+      "max_tensor_error": 0.0
+    },
+    {
+      "split": "val",
+      "images_checked": 9,
+      "max_tensor_error": 0.0
+    }
+  ],
+  "cpu_100_images_seconds": {
+    "iloc_with_attrs": 0.3841401669778861,
+    "cached_columns": 0.08221799996681511
+  },
+  "note": "Cùng PIL RGB, transform, nhãn và thứ tự; chỉ bỏ iloc gây deepcopy metadata. Đo CPU I/O, không phải latency GPU.",
+  "full_training_equivalence": {
+    "reference": "B02_convnext_atto_seed0",
+    "optimized": "T00_screen_seed0",
+    "epochs": 10,
+    "identical_val_prediction_csv": true,
+    "csv_sha256": "9abc057f3ab0147820c886b1fc5d90b062343003a9bf7771044b307a3e6a0d1a"
+  }
+}

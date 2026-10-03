@@ -36,6 +36,20 @@ class DatasetTests(unittest.TestCase):
             self.assertTrue(torch.isfinite(a).all())
             torch.testing.assert_close(denormalize(a), torch.full_like(a, 128/255))
 
+    def test_cached_columns_preserve_source_and_order(self):
+        with tempfile.TemporaryDirectory() as d:
+            for name,value in [('b.png',72),('a.png',160)]:
+                Image.fromarray(np.full((16,16,3),value,dtype=np.uint8)).save(Path(d)/name)
+            df=pd.DataFrame({'Filename':['b.png','a.png'],'Label':[7,0]},index=[20,10])
+            df.attrs={'reference_names':{'b.png','a.png'},'split':'train'}
+            original=df.copy(deep=True)
+            ds=DeepWeedsDataset(df,d,build_transforms(False,16))
+            self.assertEqual([ds[i][1:] for i in range(2)],[(7,'b.png'),(0,'a.png')])
+            self.assertTrue(df.equals(original))
+            self.assertEqual(df.attrs,original.attrs)
+            df.loc[20,'Label']=1
+            self.assertEqual(ds[0][1],7)
+
     def test_seeded_training_loader(self):
         with tempfile.TemporaryDirectory() as d:
             names = [f'{i}.png' for i in range(8)]

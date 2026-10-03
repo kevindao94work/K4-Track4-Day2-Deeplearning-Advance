@@ -1,0 +1,108 @@
+{
+  "selection_split": "val",
+  "seed": 0,
+  "baseline_recipe": {
+    "fold": 0,
+    "backbone": "convnext_atto.d2_in1k",
+    "init": "finetune",
+    "pretrained": true,
+    "drop_rate": 0.0,
+    "img_size": 128,
+    "aug": "basic",
+    "sampler": null,
+    "mix": null,
+    "mix_alpha": 1.0,
+    "loss": "ce",
+    "label_smoothing": 0.0,
+    "focal_gamma": 2.0,
+    "class_weight_beta": null,
+    "epochs": 10,
+    "batch_size": 32,
+    "lr_backbone": 0.0001,
+    "lr_head": 0.001,
+    "weight_decay": 0.05,
+    "warmup_epochs": 1.0,
+    "ema_decay": null,
+    "amp": false,
+    "num_workers": 2,
+    "optimizer": "adamw",
+    "scheduler": "cosine",
+    "momentum": 0.9,
+    "grad_clip": null,
+    "device": "auto",
+    "crop_pct": 0.875,
+    "interpolation": "bicubic",
+    "smoke_train": 0,
+    "smoke_val": 0
+  },
+  "experiments": [
+    {
+      "exp_id": "T00_screen",
+      "axis": "Mốc",
+      "difference": "Không đổi",
+      "overrides": {}
+    },
+    {
+      "exp_id": "T01_frozen",
+      "axis": "A",
+      "difference": "Đóng băng backbone",
+      "overrides": {
+        "init": "frozen"
+      }
+    },
+    {
+      "exp_id": "T02_scratch",
+      "axis": "A",
+      "difference": "Khởi tạo ngẫu nhiên",
+      "overrides": {
+        "init": "scratch",
+        "pretrained": false
+      }
+    },
+    {
+      "exp_id": "T03_color",
+      "axis": "B",
+      "difference": "Thêm ColorJitter",
+      "overrides": {
+        "aug": "color"
+      }
+    },
+    {
+      "exp_id": "T04_cutmix",
+      "axis": "B",
+      "difference": "Thêm CutMix alpha=1",
+      "overrides": {
+        "mix": "cutmix"
+      }
+    },
+    {
+      "exp_id": "T05_ls",
+      "axis": "C",
+      "difference": "Label smoothing epsilon=0,1",
+      "overrides": {
+        "loss": "ls",
+        "label_smoothing": 0.1
+      }
+    },
+    {
+      "exp_id": "T06_focal",
+      "axis": "C",
+      "difference": "Focal gamma=2",
+      "overrides": {
+        "loss": "focal",
+        "focal_gamma": 2.0
+      }
+    },
+    {
+      "exp_id": "T07_cutmix_ls",
+      "axis": "B+C",
+      "difference": "CutMix alpha=1 + label smoothing 0,1",
+      "overrides": {
+        "mix": "cutmix",
+        "loss": "ls",
+        "label_smoothing": 0.1
+      }
+    }
+  ],
+  "note": "Ba trục có mốc chung và các giá trị khác; T07 kiểm tra tương tác CutMix/LS kể cả khi một yếu tố đơn lẻ không cải thiện."
+}

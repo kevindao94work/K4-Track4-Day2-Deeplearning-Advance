@@ -136,3 +136,23 @@ suy luận chính thức sẽ dùng ít nhất 50 lần đo riêng.
 theo macro-F1 validation; `evidence/stage6.json` đối chiếu bảng, log, CSV và biểu đồ.
 Đây là sàng lọc một seed. Các công thức tiền huấn luyện upstream khác nhau, nên
 không diễn giải thứ hạng này như tác động thuần túy của kiến trúc.
+
+## Ablation công thức huấn luyện
+
+```bash
+.venv/bin/python submissions/2A202602793_dao_gia_bao/code/check_loader_equivalence.py
+.venv/bin/python submissions/2A202602793_dao_gia_bao/code/workflow.py training
+```
+
+Mốc `T00_screen` và bảy thay đổi dùng cùng backbone chọn trên val, seed 0 và
+công thức sàng lọc. `configs/training_plan.json` ghi trước các override: A gồm
+frozen/scratch so với finetune; B gồm ColorJitter/CutMix so với basic; C gồm
+label smoothing/focal so với CE. T07 kết hợp CutMix và label smoothing. Delta
+lấy so với T00_screen; F1 Chinee apple và Snake weed được tính bằng evaluator.
+
+Dataset truy cập cột cache thay cho pandas iloc nhằm tránh sao chép metadata
+cho từng ảnh. Ảnh/nhãn/thứ tự/augmentation giữ nguyên, có kiểm tra tensor khớp
+chính xác ở `evidence/loader_equivalence.json`. Mọi lượt ablation dùng cùng bản
+tối ưu này. Không so thời gian I/O giai đoạn backbone và ablation như tác động
+của hyperparameter. `tables/Training.csv` và `evidence/training_selection.md`
+được sinh từ log thật; ưu thế nhỏ ở một seed cần kiểm tra lại nhiễu seed.

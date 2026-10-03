@@ -416,6 +416,9 @@ def run(cfg: Config) -> dict:
         pd.DataFrame(history).to_csv(out / 'history.csv', index=False)
         plot_curves(history, curve, f'{cfg.exp_id} · seed {cfg.seed} · {cfg.backbone}')
         print(json.dumps({'exp_id':cfg.exp_id, 'seed':cfg.seed, **row}, ensure_ascii=False), flush=True)
+    # Khôi phục cả artifacts nếu gián đoạn ngay sau checkpoint epoch cuối.
+    pd.DataFrame(history).to_csv(out / 'history.csv', index=False)
+    plot_curves(history, curve, f'{cfg.exp_id} · seed {cfg.seed} · {cfg.backbone}')
     state = torch.load(out / 'best.pt', map_location='cpu', weights_only=False)
     model.load_state_dict(state['model'])
     filenames, labels, logits, val_loss = evaluate(model, val_loader, val_criterion, device)

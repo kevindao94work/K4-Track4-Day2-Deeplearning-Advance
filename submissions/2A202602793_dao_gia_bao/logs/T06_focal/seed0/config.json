@@ -1,0 +1,216 @@
+{
+  "config": {
+    "exp_id": "T06_focal",
+    "seed": 0,
+    "fold": 0,
+    "backbone": "convnext_atto.d2_in1k",
+    "init": "finetune",
+    "pretrained": true,
+    "drop_rate": 0.0,
+    "img_size": 128,
+    "aug": "basic",
+    "sampler": null,
+    "mix": null,
+    "mix_alpha": 1.0,
+    "loss": "focal",
+    "label_smoothing": 0.0,
+    "focal_gamma": 2.0,
+    "class_weight_beta": null,
+    "epochs": 10,
+    "batch_size": 32,
+    "lr_backbone": 0.0001,
+    "lr_head": 0.001,
+    "weight_decay": 0.05,
+    "warmup_epochs": 1.0,
+    "ema_decay": null,
+    "amp": false,
+    "num_workers": 2,
+    "images_dir": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/data/images",
+    "labels_dir": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/data/labels",
+    "out_dir": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/logs",
+    "pred_dir": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/predictions",
+    "save_test_predictions": false,
+    "curves_dir": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/curves",
+    "optimizer": "adamw",
+    "scheduler": "cosine",
+    "momentum": 0.9,
+    "grad_clip": null,
+    "device": "auto",
+    "crop_pct": 0.875,
+    "interpolation": "bicubic",
+    "resume": true,
+    "smoke_train": 0,
+    "smoke_val": 0,
+    "freeze_file": null
+  },
+  "versions": {
+    "python": "3.12.7",
+    "torch": "2.6.0",
+    "timm": "1.0.22",
+    "numpy": "1.26.4",
+    "pandas": "2.2.2",
+    "platform": "macOS-27.2-arm64-arm-64bit",
+    "device": "mps",
+    "gpu": "Apple M4 (MPS)",
+    "threads": 4,
+    "git_commit": "1ff20ae495b7566605118671961e0173b55e6158",
+    "code_sha256": {
+      "dataset.py": "df4fd39a47e1306cf7625b43d97891dbf5cdb7e9fda45d33ee37c5d2028a9e8d",
+      "model.py": "9fba8e214bf750ea663a4f7463dbdd7f838e96d08edb0ef29e10dda96398d1f1",
+      "losses.py": "64d9960fe1950dcf516ad3c73822b44f7e3d63dc1fcbdc5e41f1a28fcd4aa5dc",
+      "train.py": "85ae12e104b775feebd7f25bdae80601f32cea3078c1628c74730be17d1d29b7"
+    }
+  },
+  "model": {
+    "architecture": "convnext_atto",
+    "pretrained_tag": "convnext_atto.d2_in1k",
+    "head_init": "normal(mean=0, std=0.01), bias=0",
+    "pretrained_source": {
+      "repo_id": "timm/convnext_atto.d2_in1k",
+      "filename": "model.safetensors",
+      "revision": "435c0a8d02d5b872e90c8cde36887465982cb399",
+      "sha256": "0f70bc49f1896c8c15af857d2d1d418abfaf097a62b4e29a35e6e65b752f5953"
+    },
+    "pretrained_used": true,
+    "pretrained_cfg": {
+      "url": "https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/convnext_atto_d2-01bb0f51.pth",
+      "hf_hub_id": "timm/convnext_atto.d2_in1k",
+      "architecture": "convnext_atto",
+      "tag": "d2_in1k",
+      "custom_load": false,
+      "input_size": [
+        3,
+        224,
+        224
+      ],
+      "test_input_size": [
+        3,
+        288,
+        288
+      ],
+      "fixed_input_size": false,
+      "interpolation": "bicubic",
+      "crop_pct": 0.875,
+      "test_crop_pct": 0.95,
+      "crop_mode": "center",
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "num_classes": 1000,
+      "pool_size": [
+        7,
+        7
+      ],
+      "first_conv": "stem.0",
+      "classifier": "head.fc",
+      "license": "apache-2.0"
+    },
+    "parameters_m": 3.377409,
+    "trainable_parameters": 3377409,
+    "gmac": 0.1786192,
+    "gmac_tool": "torch.utils.flop_counter.FlopCounterMode, FLOP/2; toán tử được hỗ trợ"
+  },
+  "preprocessing": {
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ],
+    "interpolation": "bicubic",
+    "crop_pct": 0.875
+  },
+  "split": {
+    "fold": 0,
+    "n": {
+      "train": 10501,
+      "val": 3501,
+      "test": 3507
+    },
+    "per_class": {
+      "train": [
+        675,
+        637,
+        618,
+        613,
+        637,
+        605,
+        644,
+        609,
+        5463
+      ],
+      "val": [
+        225,
+        213,
+        206,
+        204,
+        212,
+        202,
+        215,
+        203,
+        1821
+      ],
+      "test": [
+        226,
+        213,
+        207,
+        205,
+        213,
+        202,
+        215,
+        204,
+        1822
+      ]
+    },
+    "class_names": [
+      "Chinee apple",
+      "Lantana",
+      "Parkinsonia",
+      "Parthenium",
+      "Prickly acacia",
+      "Rubber vine",
+      "Siam weed",
+      "Snake weed",
+      "Negative"
+    ],
+    "overlap": {
+      "train_val": 0,
+      "train_test": 0,
+      "val_test": 0
+    },
+    "union": 17509,
+    "missing": 0,
+    "num_classes": 9,
+    "annotation_conflicts": {
+      "train": [
+        {
+          "Filename": "20170714-110407-3.jpg",
+          "split_label": 0,
+          "labels_csv_label": 1
+        }
+      ],
+      "val": [],
+      "test": []
+    },
+    "csv_sha256": {
+      "labels.csv": "6fb95b89fd9d384f94e185a5cab6c5da7c987649399c90618ecc60acfb0112eb",
+      "train_subset0.csv": "a2e63f561a545837c8cabaa276a957ccf1293ec985c9d8fbc49d67b4fd5abdb2",
+      "val_subset0.csv": "1fa70a03a68def06c921a1dd7f0b53e96490f6dfad51d7d423bb145161ebc478",
+      "test_subset0.csv": "fb212793b988bc0455aae2e48cb9eb3168014c2f47fbdb93f5f1e284e0974f75"
+    }
+  },
+  "amp_effective": false,
+  "validation_loss": "CE không trọng số",
+  "checkpoint_weights": "raw"
+}

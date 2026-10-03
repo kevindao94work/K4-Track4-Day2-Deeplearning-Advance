@@ -1,0 +1,84 @@
+{
+  "passed": true,
+  "axes": [
+    "A",
+    "B",
+    "C"
+  ],
+  "values_per_axis": {
+    "A": [
+      "finetune",
+      "frozen",
+      "scratch"
+    ],
+    "B": [
+      "basic",
+      "color",
+      "cutmix"
+    ],
+    "C": [
+      "ce",
+      "label_smoothing",
+      "focal"
+    ]
+  },
+  "combination": "T07_cutmix_ls",
+  "runs": [
+    {
+      "exp_id": "T00_screen",
+      "epochs": 10,
+      "curve": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/curves/T00_screen_seed0_convnext_atto.png",
+      "val_n": 3501,
+      "test_evaluated": false
+    },
+    {
+      "exp_id": "T01_frozen",
+      "epochs": 10,
+      "curve": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/curves/T01_frozen_seed0_convnext_atto.png",
+      "val_n": 3501,
+      "test_evaluated": false
+    },
+    {
+      "exp_id": "T02_scratch",
+      "epochs": 10,
+      "curve": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/curves/T02_scratch_seed0_convnext_atto.png",
+      "val_n": 3501,
+      "test_evaluated": false
+    },
+    {
+      "exp_id": "T03_color",
+      "epochs": 10,
+      "curve": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/curves/T03_color_seed0_convnext_atto.png",
+      "val_n": 3501,
+      "test_evaluated": false
+    },
+    {
+      "exp_id": "T04_cutmix",
+      "epochs": 10,
+      "curve": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/curves/T04_cutmix_seed0_convnext_atto.png",
+      "val_n": 3501,
+      "test_evaluated": false
+    },
+    {
+      "exp_id": "T05_ls",
+      "epochs": 10,
+      "curve": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/curves/T05_ls_seed0_convnext_atto.png",
+      "val_n": 3501,
+      "test_evaluated": false
+    },
+    {
+      "exp_id": "T06_focal",
+      "epochs": 10,
+      "curve": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/curves/T06_focal_seed0_convnext_atto.png",
+      "val_n": 3501,
+      "test_evaluated": false
+    },
+    {
+      "exp_id": "T07_cutmix_ls",
+      "epochs": 10,
+      "curve": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/curves/T07_cutmix_ls_seed0_convnext_atto.png",
+      "val_n": 3501,
+      "test_evaluated": false
+    }
+  ]
+}
