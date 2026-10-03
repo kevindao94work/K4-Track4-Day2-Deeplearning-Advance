@@ -6,7 +6,24 @@
 - Mã triển khai: `code/`, sao chép từ `starter/` của repo.
 - Chọn cấu hình bằng macro-F1 validation; chỉ đánh giá test sau khi chốt cấu hình.
 
-Tài liệu chạy lại và kết quả thực nghiệm sẽ được cập nhật theo từng giai đoạn đã kiểm tra.
+## Kết quả và sản phẩm
+
+F01: ConvNeXt-Atto, label smoothing 0,1, train128/infer160 một view + temperature
+scaling khớp trên val. Test ba seed: **macro-F1 0,9451 ± 0,0036**,
+**top-1 95,7514% ± 0,3018 điểm phần trăm**, ECE **0,0087 ± 0,0019**.
+T00 macro-F1 **0,9325 ± 0,0051**; delta ghép seed **+0,0125 ± 0,0026**.
+Std mẫu ddof=1. P95 batch1 trên checkpoint F01 seed0 **14,72 ms**, chưa gồm
+đọc ảnh/tiền xử lý CPU/camera. Test mỗi ID/seed đúng một pass, đủ 3.507 ảnh.
+
+- [Báo cáo tiếng Việt](report.md), [workbook bảy sheet](results.xlsx).
+- [Notebook trong repo](code/lab_day2.ipynb).
+- [Mở trên Colab](https://colab.research.google.com/github/kevindao94work/K4-Track4-Day2-Deeplearning-Advance/blob/main/submissions/2A202602793_dao_gia_bao/code/lab_day2.ipynb).
+- `curves/`: 19 đường cong thật; `predictions/`: mọi validation và test chung kết/mốc.
+- `logs/`: cấu hình, history, summary, 50 mẫu benchmark và ledger test từng seed.
+- `evidence/official_eval/`: evaluator score/grade nguyên bản; tự chấm mục I **19/20**, giảng viên xác nhận.
+
+Số đo đến từ CLI trên Apple M4; notebook đã kiểm tra cấu trúc/cú pháp nhưng chưa
+chạy toàn bộ trên Colab. Không cần tải trọng số để tính lại metric từ CSV.
 
 ## Môi trường và dữ liệu
 
@@ -17,6 +34,9 @@ Từ thư mục gốc repo:
 ```bash
 python -m venv .venv
 .venv/bin/python -m pip install -r submissions/2A202602793_dao_gia_bao/code/requirements.txt
+export LAB_OUTPUT_DIR="$PWD/reproduction"
+export LAB_DATA_DIR="$PWD/data"
+export HF_HUB_CACHE="$PWD/data/hf_cache"
 .venv/bin/python submissions/2A202602793_dao_gia_bao/code/download_data.py
 .venv/bin/python submissions/2A202602793_dao_gia_bao/code/check_data.py
 .venv/bin/python -m unittest discover -s tests -v
@@ -26,6 +46,12 @@ python -m venv .venv
 Ảnh được giải nén vào `data/images`, CSV vào `data/labels`. Trình tải kiểm tra
 MD5 `b7b30f96d466fba86016aa5a26606e0f` trước khi giải nén. Tất cả dữ liệu nằm
 ngoài phần commit. Nếu tải bị ngắt, chạy lại với cùng số `--workers` để tiếp tục.
+
+`LAB_OUTPUT_DIR` mới tách sản phẩm tái lập khỏi log gốc vốn ghi đường dẫn tuyệt đối
+của máy M4. Không chạy đợt huấn luyện mới lên các ID bất biến đã nộp. Code và các
+recipe đầu vào vẫn đọc từ repo; kết quả mới ghi vào `reproduction/`, được Git bỏ qua.
+Máy khác chọn CUDA/MPS/CPU qua `device=auto`; recipe vẫn FP32 để giữ thiết kế.
+Tải timm cần mạng ở lần đầu; bỏ `HF_HUB_OFFLINE` nếu chưa có cache.
 
 CSV split chính thức chỉ có `Filename,Label`. Loader giữ nguyên nội dung và thứ tự
 CSV, lấy tên/thứ tự lớp từ `labels.csv`. Có một sai khác nhãn nguồn tại
@@ -74,9 +100,9 @@ epoch sớm hơn. Thời gian train và val được đo riêng; không gồm gh
 .venv/bin/python submissions/2A202602793_dao_gia_bao/code/train.py --set \
   exp_id=EXAMPLE backbone=mobilenetv3_small_100.lamb_in1k seed=0 \
   epochs=10 img_size=128 batch_size=32 amp=false \
-  out_dir=submissions/2A202602793_dao_gia_bao/logs \
-  pred_dir=submissions/2A202602793_dao_gia_bao/predictions \
-  curves_dir=submissions/2A202602793_dao_gia_bao/curves
+  out_dir=reproduction/logs \
+  pred_dir=reproduction/predictions \
+  curves_dir=reproduction/curves
 ```
 
 Lệnh `EXAMPLE` là ví dụ cú pháp, không phải kết quả đã đo. Thí nghiệm smoke chỉ
@@ -229,3 +255,45 @@ trọng số nguồn. Máy mới chạy toàn bộ quy trình cần bỏ offline
 ```
 
 Chỉ chạy sau khi sáu lượt train/val hoàn tất và đã chốt cấu hình. Ledger được tạo độc quyền trước forward; lượt hoàn tất chỉ xác minh CSV khi gọi lại, lượt bị ngắt phải điều tra, không tự chạy test lần hai. Evaluator đọc CSV có thể chạy lại mà không suy luận model. Bản uncal và TS dùng cùng logits test. Kết quả và tự chấm ở `evidence/official_eval/`; mọi chỉ số dùng evaluator gốc.
+
+## Thứ tự tái lập đầy đủ
+
+Sau cài đặt/biến môi trường/tải dữ liệu ở trên, chạy từ gốc repo:
+
+```bash
+.venv/bin/python submissions/2A202602793_dao_gia_bao/code/validate_pipeline.py
+.venv/bin/python submissions/2A202602793_dao_gia_bao/code/workflow.py backbones
+.venv/bin/python submissions/2A202602793_dao_gia_bao/code/workflow.py audit-backbones
+.venv/bin/python submissions/2A202602793_dao_gia_bao/code/check_loader_equivalence.py
+.venv/bin/python submissions/2A202602793_dao_gia_bao/code/workflow.py training
+.venv/bin/python submissions/2A202602793_dao_gia_bao/code/workflow.py inference
+.venv/bin/python submissions/2A202602793_dao_gia_bao/code/workflow.py freeze
+.venv/bin/python submissions/2A202602793_dao_gia_bao/code/workflow.py final-training
+.venv/bin/python submissions/2A202602793_dao_gia_bao/code/workflow.py test
+.venv/bin/python submissions/2A202602793_dao_gia_bao/code/workflow.py evaluate
+.venv/bin/python submissions/2A202602793_dao_gia_bao/code/workflow.py workbook
+```
+
+Một đợt mới chọn bằng validation của đợt đó, chốt trước test. Không sửa cấu hình
+sau khi mở test; không chạy lại test để chọn seed thuận lợi. MPS/CUDA khác máy có
+thể cho số khác do backend, deterministic warn_only và trọng số upstream cập nhật;
+log ghi snapshot/SHA thực tế, file chốt buộc cùng nguồn cho cả sáu lượt cuối.
+Snapshot đã dùng cho bài nộp ghi đầy đủ trong `configs/frozen_final.json`.
+
+Workbook tạo được cho mọi đợt đo mới. `build_report.py` tái tạo nhận xét của **đợt M4
+đã nộp**, kiểm tra `configs/report_sources.json` trước khi xuất để không đưa nhận xét
+cũ vào số liệu mới. Nếu chạy đợt mới, viết/cập nhật phân tích tiếng Việt theo bảng,
+ma trận và ảnh lỗi mới; không sao chép con số/nhận xét M4. Script không gọi model.
+
+Để kiểm tra lại hồ sơ đã nộp trên máy hiện tại (dữ liệu đã có):
+
+```bash
+unset LAB_OUTPUT_DIR
+.venv/bin/python submissions/2A202602793_dao_gia_bao/code/workflow.py report
+.venv/bin/python submissions/2A202602793_dao_gia_bao/code/workflow.py audit
+```
+
+Checkpoint `best.pt/latest.pt` và logits NPZ được lưu cục bộ sau train, **không đưa
+vào Git**; dữ liệu và cache trọng số cũng không đưa vào Git. Tái lập checkpoint cần
+chạy train; kiểm tra score/grade chỉ cần CSV dự đoán và CSV nhãn nguồn. README gốc,
+GUIDE, RUBRIC, `eval.py`, `starter/` và tests gốc giữ nguyên.

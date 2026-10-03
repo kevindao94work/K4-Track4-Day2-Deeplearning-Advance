@@ -220,7 +220,7 @@ def training():
 
 def main():
     ap=argparse.ArgumentParser(description='Quy trình Lab Day 2 theo từng giai đoạn')
-    ap.add_argument('stage',choices=['backbones','audit-backbones','training','inference','freeze','final-training','test','evaluate'])
+    ap.add_argument('stage',choices=['backbones','audit-backbones','training','inference','freeze','final-training','test','evaluate','workbook','report','audit'])
     args=ap.parse_args()
     if args.stage=='backbones': backbones()
     elif args.stage=='audit-backbones': print(json.dumps(audit_backbones(),ensure_ascii=False))
@@ -240,6 +240,15 @@ def main():
     elif args.stage=='evaluate':
         from official_results import official_results
         official_results()
+    elif args.stage=='workbook':
+        from build_workbook import build_workbook
+        build_workbook()
+    elif args.stage=='report':
+        from build_report import build_report
+        build_report()
+    elif args.stage=='audit':
+        from audit_submission import audit_submission
+        audit_submission()
 
 
 if __name__=='__main__':main()

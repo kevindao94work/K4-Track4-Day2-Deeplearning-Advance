@@ -63,7 +63,7 @@ def build_report():
             'f1':stat(eid,'macro_f1'),'top1':stat(eid,'top1'),'ece':stat(eid,'ece'),'nll':stat(eid,'nll')})
     report=f'''# Lab Day 2 — Nhận dạng cỏ dại DeepWeeds
 
-**Đào Gia Bảo · MSSV 2A202602793**  
+**Đào Gia Bảo · MSSV 2A202602793**
 Fold 0 nguyên bản · Apple M4/MPS · 19 lượt huấn luyện thật, 190 epoch.
 
 ## 1. Tóm tắt
