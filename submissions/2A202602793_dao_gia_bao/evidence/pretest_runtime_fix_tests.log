@@ -1,0 +1,29 @@
+test_cached_columns_preserve_source_and_order (test_dataset.DatasetTests.test_cached_columns_preserve_source_and_order) ... ok
+test_fold_rejected_before_io (test_dataset.DatasetTests.test_fold_rejected_before_io) ... ok
+test_reject_invalid_labels_duplicates_paths (test_dataset.DatasetTests.test_reject_invalid_labels_duplicates_paths) ... ok
+test_rgb_filename_and_deterministic_val (test_dataset.DatasetTests.test_rgb_filename_and_deterministic_val) ... ok
+test_seeded_training_loader (test_dataset.DatasetTests.test_seeded_training_loader) ... ok
+test_validation_cache_and_backup (test_final_validation.FinalValTests.test_validation_cache_and_backup) ... ok
+test_integrity_rejects_mutation (test_freeze.FreezeTests.test_integrity_rejects_mutation) ... ok
+test_recipe_seed_id_guard (test_freeze.FreezeTests.test_recipe_seed_id_guard) ... ok
+test_test_flag_is_runtime_only (test_freeze.FreezeTests.test_test_flag_is_runtime_only) ... ok
+test_aggregation_and_ensemble (test_inference.InferenceTests.test_aggregation_and_ensemble) ... ok
+test_benchmark_sync_and_counts (test_inference.InferenceTests.test_benchmark_sync_and_counts) ... ok
+test_bn_fusion_copy (test_inference.InferenceTests.test_bn_fusion_copy) ... ok
+test_predict_order_eval (test_inference.InferenceTests.test_predict_order_eval) ... ok
+test_temperature_nll_and_argmax (test_inference.InferenceTests.test_temperature_nll_and_argmax) ... ok
+test_views (test_inference.InferenceTests.test_views) ... ok
+test_focal_zero_equals_ce_and_weighted_ce (test_losses.LossTests.test_focal_zero_equals_ce_and_weighted_ce) ... ok
+test_mixup_and_cutmix_targets_area_and_loss (test_losses.LossTests.test_mixup_and_cutmix_targets_area_and_loss) ... ok
+test_training_weights_only_and_normalized (test_losses.LossTests.test_training_weights_only_and_normalized) ... ok
+test_freeze_preserves_parameters_and_bn_buffers_after_step (test_model.ModelTests.test_freeze_preserves_parameters_and_bn_buffers_after_step) ... ok
+test_group_membership_lr_and_decay (test_model.ModelTests.test_group_membership_lr_and_decay) ... ok
+test_new_head_has_controlled_small_initialization (test_model.ModelTests.test_new_head_has_controlled_small_initialization) ... ok
+test_ema_averages_parameters_copies_integer_buffers (test_train_engine.EngineTests.test_ema_averages_parameters_copies_integer_buffers) ... ok
+test_overrides_and_sealed_test (test_train_engine.EngineTests.test_overrides_and_sealed_test) ... ok
+test_scheduler_warmup_cosine_and_ratio (test_train_engine.EngineTests.test_scheduler_warmup_cosine_and_ratio) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 0.146s
+
+OK

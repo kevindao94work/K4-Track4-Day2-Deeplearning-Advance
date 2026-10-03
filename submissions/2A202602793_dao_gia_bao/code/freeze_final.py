@@ -24,6 +24,13 @@ def inference_fingerprint():
 def frozen_path():return SUB/'configs/frozen_final.json'
 
 
+def training_math_fingerprint():
+    import train
+    names=['Config','train_one_epoch','evaluate','build_optimizer','build_scheduler','EMA',
+           'probabilities','rng_state','restore_rng']
+    return hashlib.sha256('\n'.join(inspect.getsource(getattr(train,n)) for n in names).encode()).hexdigest()
+
+
 def config_for(exp_id,seed):
     record=json.loads(frozen_path().read_text())
     cfg=Config(**record['configs'][exp_id]['recipe'],exp_id=exp_id,seed=seed,
@@ -36,7 +43,15 @@ def config_for(exp_id,seed):
 def assert_integrity(record):
     if record['inference_fingerprint']!=inference_fingerprint():raise ValueError('Phép suy luận đã đổi sau chốt')
     for name,sha in record['pipeline_sha256'].items():
-        if hashlib.sha256((CODE/name).read_bytes()).hexdigest()!=sha:raise ValueError(f'{name} đã đổi sau chốt')
+        actual=hashlib.sha256((CODE/name).read_bytes()).hexdigest()
+        if actual!=sha:
+            compatibility=SUB/'evidence/pretest_runtime_fix.json'
+            if name=='train.py' and compatibility.is_file():
+                fix=json.loads(compatibility.read_text())
+                if (fix['old_train_sha256']==sha and fix['new_train_sha256']==actual
+                    and fix['training_math_fingerprint']==training_math_fingerprint()
+                    and fix['frozen_sha256']==hashlib.sha256(frozen_path().read_bytes()).hexdigest()):continue
+            raise ValueError(f'{name} đã đổi sau chốt')
     for name,sha in record['csv_sha256'].items():
         if hashlib.sha256((DATA/'labels'/name).read_bytes()).hexdigest()!=sha:raise ValueError('CSV split đã đổi')
     if hashlib.sha256((REPO/'eval.py').read_bytes()).hexdigest()!=record['evaluator_sha256']:

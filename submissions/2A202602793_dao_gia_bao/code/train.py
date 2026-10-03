@@ -335,7 +335,7 @@ def run(cfg: Config) -> dict:
     if config_file.exists():
         previous_record = json.loads(config_file.read_text())
         previous = previous_record['config']
-        if {k:v for k,v in previous.items() if k != 'resume'} != {k:v for k,v in asdict(cfg).items() if k != 'resume'}:
+        if {k:v for k,v in previous.items() if k not in ('resume','save_test_predictions')} != {k:v for k,v in asdict(cfg).items() if k not in ('resume','save_test_predictions')}:
             raise ValueError('exp_id/seed đã có cấu hình khác; hãy dùng mã thí nghiệm mới')
         if not cfg.resume:
             raise FileExistsError('Lần chạy đã tồn tại và resume=False')

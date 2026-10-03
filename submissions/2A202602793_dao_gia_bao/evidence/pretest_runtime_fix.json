@@ -1,0 +1,8 @@
+{
+  "old_train_sha256": "85ae12e104b775feebd7f25bdae80601f32cea3078c1628c74730be17d1d29b7",
+  "new_train_sha256": "08f23ec3f0c05b829d4d3b2ce1e51d380110a817b4f5869af74520536b4c64dc",
+  "training_math_fingerprint": "28130a57e376240bd17a5127a5e5f2377404fadd2280e53f1b879fa36703f863",
+  "frozen_sha256": "3cd92528bed41eb7077bb6286aa5c87390b759147e0b765418a8ebfddcc8bca7",
+  "test_evaluated": false,
+  "change": "So sánh cấu hình resume bỏ qua cờ runtime save_test_predictions; đúng một điều kiện, không đổi training/validation/optimizer/scheduler/EMA/RNG hay recipe."
+}

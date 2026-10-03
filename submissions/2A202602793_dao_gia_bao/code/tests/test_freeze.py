@@ -3,12 +3,24 @@ import sys,json,tempfile,hashlib
 from pathlib import Path
 import unittest
 from unittest.mock import patch
-from dataclasses import replace
+from dataclasses import replace,asdict
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 import freeze_final
-from train import Config,frozen_recipe,validate_freeze
+from train import Config,frozen_recipe,validate_freeze,run
 
 class FreezeTests(unittest.TestCase):
+    def test_test_flag_is_runtime_only(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);p=root/'freeze.json'
+            cfg=Config(exp_id='F01',seed=0,device='cpu',out_dir=str(root/'logs'),freeze_file=str(p))
+            p.write_text(json.dumps({'seeds':[0,1,2],'configs':{'F01':{'recipe':frozen_recipe(cfg)}}}))
+            folder=root/'logs/F01/seed0';folder.mkdir(parents=True)
+            (folder/'config.json').write_text(json.dumps({'config':asdict(cfg)}))
+            (folder/'summary.json').write_text(json.dumps({'test_evaluated':False}))
+            with patch('inference.export_frozen_test',return_value={},create=True) as export:
+                result=run(replace(cfg,save_test_predictions=True))
+                export.assert_called_once();self.assertTrue(result['test_evaluated'])
+
     def test_recipe_seed_id_guard(self):
         with tempfile.TemporaryDirectory() as d:
             p=Path(d)/'freeze.json';cfg=Config(exp_id='F01',seed=1,freeze_file=str(p))
