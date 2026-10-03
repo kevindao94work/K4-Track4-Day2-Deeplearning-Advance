@@ -1,0 +1,185 @@
+{
+  "created_utc": "2026-10-03T14:27:32.282168+00:00",
+  "selection_split": "val",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "configs": {
+    "F01": {
+      "recipe": {
+        "fold": 0,
+        "backbone": "convnext_atto.d2_in1k",
+        "init": "finetune",
+        "pretrained": true,
+        "drop_rate": 0.0,
+        "img_size": 128,
+        "aug": "basic",
+        "sampler": null,
+        "mix": null,
+        "mix_alpha": 1.0,
+        "loss": "ls",
+        "label_smoothing": 0.1,
+        "focal_gamma": 2.0,
+        "class_weight_beta": null,
+        "epochs": 10,
+        "batch_size": 32,
+        "lr_backbone": 0.0001,
+        "lr_head": 0.001,
+        "weight_decay": 0.05,
+        "warmup_epochs": 1.0,
+        "ema_decay": null,
+        "amp": false,
+        "num_workers": 2,
+        "optimizer": "adamw",
+        "scheduler": "cosine",
+        "momentum": 0.9,
+        "grad_clip": null,
+        "device": "auto",
+        "crop_pct": 0.875,
+        "interpolation": "bicubic",
+        "smoke_train": 0,
+        "smoke_val": 0
+      },
+      "inference": {
+        "exp_id": "I04",
+        "name": "Một view 160",
+        "policy": "identity",
+        "resolution": 160,
+        "input_size": 160,
+        "aggregation": "logit",
+        "sizes": [
+          96,
+          128,
+          160
+        ]
+      },
+      "temperature_policy": "val_nll_per_seed",
+      "pretrained_source": {
+        "repo_id": "timm/convnext_atto.d2_in1k",
+        "filename": "model.safetensors",
+        "revision": "435c0a8d02d5b872e90c8cde36887465982cb399",
+        "sha256": "0f70bc49f1896c8c15af857d2d1d418abfaf097a62b4e29a35e6e65b752f5953"
+      },
+      "screening_source_exp_id": "T05_ls",
+      "test_paths": {
+        "0": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/predictions/F01_seed0_test.csv",
+        "1": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/predictions/F01_seed1_test.csv",
+        "2": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/predictions/F01_seed2_test.csv"
+      },
+      "val_paths": {
+        "0": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/predictions/F01_seed0_val.csv",
+        "1": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/predictions/F01_seed1_val.csv",
+        "2": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/predictions/F01_seed2_val.csv"
+      }
+    },
+    "T00": {
+      "recipe": {
+        "fold": 0,
+        "backbone": "convnext_atto.d2_in1k",
+        "init": "finetune",
+        "pretrained": true,
+        "drop_rate": 0.0,
+        "img_size": 128,
+        "aug": "basic",
+        "sampler": null,
+        "mix": null,
+        "mix_alpha": 1.0,
+        "loss": "ce",
+        "label_smoothing": 0.0,
+        "focal_gamma": 2.0,
+        "class_weight_beta": null,
+        "epochs": 10,
+        "batch_size": 32,
+        "lr_backbone": 0.0001,
+        "lr_head": 0.001,
+        "weight_decay": 0.05,
+        "warmup_epochs": 1.0,
+        "ema_decay": null,
+        "amp": false,
+        "num_workers": 2,
+        "optimizer": "adamw",
+        "scheduler": "cosine",
+        "momentum": 0.9,
+        "grad_clip": null,
+        "device": "auto",
+        "crop_pct": 0.875,
+        "interpolation": "bicubic",
+        "smoke_train": 0,
+        "smoke_val": 0
+      },
+      "inference": {
+        "exp_id": "I00",
+        "name": "Một view",
+        "policy": "identity",
+        "resolution": 128,
+        "input_size": 128,
+        "aggregation": "logit",
+        "sizes": [
+          96,
+          128,
+          160
+        ]
+      },
+      "temperature_policy": "none",
+      "pretrained_source": {
+        "repo_id": "timm/convnext_atto.d2_in1k",
+        "filename": "model.safetensors",
+        "revision": "435c0a8d02d5b872e90c8cde36887465982cb399",
+        "sha256": "0f70bc49f1896c8c15af857d2d1d418abfaf097a62b4e29a35e6e65b752f5953"
+      },
+      "screening_source_exp_id": "T00_screen",
+      "test_paths": {
+        "0": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/predictions/T00_seed0_test.csv",
+        "1": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/predictions/T00_seed1_test.csv",
+        "2": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/predictions/T00_seed2_test.csv"
+      },
+      "val_paths": {
+        "0": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/predictions/T00_seed0_val.csv",
+        "1": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/predictions/T00_seed1_val.csv",
+        "2": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/predictions/T00_seed2_val.csv"
+      }
+    }
+  },
+  "final_uncal_test_pattern": "F01_uncal_seed*_test.csv",
+  "reason": "Backbone B02; công thức T05; suy luận I08. Chọn macro-F1 val; tie dùng NLL rồi p95.",
+  "inference_fingerprint": "9d52407f8da99e08577bda5404ba95980c7c3c35f3ffa1fa5d117dbda851b073",
+  "pipeline_sha256": {
+    "dataset.py": "df4fd39a47e1306cf7625b43d97891dbf5cdb7e9fda45d33ee37c5d2028a9e8d",
+    "model.py": "9fba8e214bf750ea663a4f7463dbdd7f838e96d08edb0ef29e10dda96398d1f1",
+    "losses.py": "64d9960fe1950dcf516ad3c73822b44f7e3d63dc1fcbdc5e41f1a28fcd4aa5dc",
+    "train.py": "85ae12e104b775feebd7f25bdae80601f32cea3078c1628c74730be17d1d29b7"
+  },
+  "csv_sha256": {
+    "labels.csv": "6fb95b89fd9d384f94e185a5cab6c5da7c987649399c90618ecc60acfb0112eb",
+    "train_subset0.csv": "a2e63f561a545837c8cabaa276a957ccf1293ec985c9d8fbc49d67b4fd5abdb2",
+    "val_subset0.csv": "1fa70a03a68def06c921a1dd7f0b53e96490f6dfad51d7d423bb145161ebc478",
+    "test_subset0.csv": "fb212793b988bc0455aae2e48cb9eb3168014c2f47fbdb93f5f1e284e0974f75"
+  },
+  "evaluator_sha256": "7a9f86781ac219747ea502b642db8fa8ff2e8d5796fdad9a658729546c0f4cc0",
+  "test_policy": "Một vòng đầy đủ qua test mỗi exp_id/seed; lưu uncal/cal từ cùng logits; ledger chống chạy lại.",
+  "temperature_procedure": "Mỗi seed tối ưu một log(T) trên NLL của toàn bộ val ở policy đã chốt; giới hạn [-5,5], không đổi argmax.",
+  "screening_results": {
+    "training": 0.931246790830467,
+    "inference": {
+      "exp_id": "I08",
+      "method": "Một view 160 + TS khớp NLL val",
+      "model_checkpoint": "T05_ls_seed0/best.pt",
+      "checkpoint_sha256": "aa34941b180862db283c4c952d8b7891349340da64725e1142fa0ede8422bbe6",
+      "K": 1,
+      "resolution": 160,
+      "input_size": 160,
+      "temperature": 0.6325188143255821,
+      "macro_f1_val": 0.9434138860750934,
+      "top1_val": 0.956583833190517,
+      "ece_val": 0.013259729685804099,
+      "nll_val": 0.13842337430715176,
+      "latency_p50_batch1_ms": 6.82166701881215,
+      "latency_p95_batch1_ms": 7.14318573300261,
+      "latency_p99_batch1_ms": 7.543220521183684,
+      "throughput_images_s": 1164.8930289842917,
+      "relative_cost_vs_I00": 1.0593164618407063
+    }
+  }
+}

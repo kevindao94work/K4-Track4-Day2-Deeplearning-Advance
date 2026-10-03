@@ -175,3 +175,16 @@ Các mẫu thời gian thô cũng được giữ. Bao gồm biến đổi view/f
 trên GPU; **không tính đọc ảnh/resize/normalize CPU**. Đây chưa phải độ trễ toàn
 bộ hệ thống camera/robot. ConvNeXt dùng LayerNorm nên không có BN để gộp;
 utility BN fusion được kiểm tra riêng, không gán một kết quả tăng tốc giả.
+
+## Chốt cấu hình trước test
+
+```bash
+.venv/bin/python submissions/2A202602793_dao_gia_bao/code/freeze_final.py
+```
+
+`configs/frozen_final.json` cố định F01 và mốc T00, các seed 0/1/2, đường dẫn,
+hash CSV/evaluator/pipeline và phép suy luận. F01 dùng công thức T05_ls, infer
+một view 160 + TS khớp NLL val riêng mỗi seed. Mốc dùng CE, một view 128, T=1.
+Dry run đầy đủ val và cấu hình sáu lượt đã qua kiểm tra (`evidence/stage9.json`).
+Mốc chốt được commit/push trước huấn luyện chung kết và trước mọi suy luận test.
+Khi đã có file chốt, lệnh không tự ghi đè lựa chọn theo kết quả mới.
