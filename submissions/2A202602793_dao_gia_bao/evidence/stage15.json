@@ -1,0 +1,197 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "criterion": "Giữ nguyên nguồn lớp học",
+      "status": "Đạt",
+      "evidence": "git diff fe9791a: eval.py, starter/, tests/, README/ GUIDE/ RUBRIC không đổi"
+    },
+    {
+      "criterion": "Chốt trước test và giữ nguyên toán học",
+      "status": "Đạt",
+      "evidence": "1629d9e; fingerprint train/model/dataset/loss/inference; ngoại lệ cờ runtime 6c07c9f trước test"
+    },
+    {
+      "criterion": "Fold0, EDA và sanity",
+      "status": "Đạt",
+      "evidence": "stage5.json; lớp/ảnh mẫu/augmentation/overfit; giữ annotation conflict nguồn"
+    },
+    {
+      "criterion": "5 backbone, 3 trục, kết hợp và 9 cấu hình suy luận",
+      "status": "Đạt",
+      "evidence": "Backbones/Training/Inference CSV khớp evaluator; các gate6/7/8; sàng lọc một seed"
+    },
+    {
+      "criterion": "19 lần train thật và 19 biểu đồ",
+      "status": "Đạt",
+      "evidence": "Mỗi history đủ epoch1–10, mọi summary/curve có thật; không dùng pilot làm chung kết"
+    },
+    {
+      "criterion": "Test một lượt/seed và TS chỉ val",
+      "status": "Đạt",
+      "evidence": "Sáu ledger độc quyền complete/pass_count1/n3507; argmax TS giữ nguyên; gọi lại chỉ xác minh cache, mock chặn model"
+    },
+    {
+      "criterion": "Metric mean/sample std và per-class",
+      "status": "Đạt",
+      "evidence": "Tính lại từ đủ CSV test; đối chiếu Final/PerClass/stage11 và evaluator ddof=1"
+    },
+    {
+      "criterion": "Latency thực và giới hạn phạm vi",
+      "status": "Đạt",
+      "evidence": "22 hàng batch1/32; 10 warmup/50 mẫu sync; p50/p95/p99 từ mẫu thô; không tính CPU preprocessing"
+    },
+    {
+      "criterion": "Workbook bảy sheet đúng từng ô",
+      "status": "Đạt",
+      "evidence": "Đọc XLSX đã lưu, đối chiếu CSV và mean/std; tiêu đề Việt/đơn vị/filter/freeze; preview mọi sheet/cột đã xem"
+    },
+    {
+      "criterion": "Báo cáo tiếng Việt, giới hạn và lỗi thật",
+      "status": "Đạt",
+      "evidence": "9 mục; số/ảnh từ nguồn có hash; nêu n3/fold0/budget/cache/head/MPS/runtime fix; liên kết nội bộ đủ"
+    },
+    {
+      "criterion": "Notebook và mã hoàn thiện",
+      "status": "Đạt",
+      "evidence": "nbformat/AST mọi code cell; không output cũ hoặc stub; cùng engine CLI; chưa chạy Colab toàn bộ"
+    },
+    {
+      "criterion": "Kiểm tra CPU thực thi",
+      "status": "Đạt",
+      "evidence": "38 test gốc + 25 test bài nộp đạt; không thêm lượt test dataset"
+    },
+    {
+      "criterion": "Không commit dữ liệu/trọng số",
+      "status": "Đạt",
+      "evidence": "git ls-files không chứa data/.venv/checkpoint/safetensors/NPZ/ZIP; các sản phẩm nhỏ được commit"
+    }
+  ],
+  "training_runs": [
+    {
+      "exp_id": "B01_resnet18",
+      "seed": 0,
+      "epochs": 10,
+      "curve": "curves/B01_resnet18_seed0_resnet18.png"
+    },
+    {
+      "exp_id": "B02_convnext_atto",
+      "seed": 0,
+      "epochs": 10,
+      "curve": "curves/B02_convnext_atto_seed0_convnext_atto.png"
+    },
+    {
+      "exp_id": "B03_deit_tiny",
+      "seed": 0,
+      "epochs": 10,
+      "curve": "curves/B03_deit_tiny_seed0_deit_tiny_patch16_224.png"
+    },
+    {
+      "exp_id": "B04_efficientnet_b0",
+      "seed": 0,
+      "epochs": 10,
+      "curve": "curves/B04_efficientnet_b0_seed0_efficientnet_b0.png"
+    },
+    {
+      "exp_id": "B05_mobilenetv3_small",
+      "seed": 0,
+      "epochs": 10,
+      "curve": "curves/B05_mobilenetv3_small_seed0_mobilenetv3_small_100.png"
+    },
+    {
+      "exp_id": "T00_screen",
+      "seed": 0,
+      "epochs": 10,
+      "curve": "curves/T00_screen_seed0_convnext_atto.png"
+    },
+    {
+      "exp_id": "T01_frozen",
+      "seed": 0,
+      "epochs": 10,
+      "curve": "curves/T01_frozen_seed0_convnext_atto.png"
+    },
+    {
+      "exp_id": "T02_scratch",
+      "seed": 0,
+      "epochs": 10,
+      "curve": "curves/T02_scratch_seed0_convnext_atto.png"
+    },
+    {
+      "exp_id": "T03_color",
+      "seed": 0,
+      "epochs": 10,
+      "curve": "curves/T03_color_seed0_convnext_atto.png"
+    },
+    {
+      "exp_id": "T04_cutmix",
+      "seed": 0,
+      "epochs": 10,
+      "curve": "curves/T04_cutmix_seed0_convnext_atto.png"
+    },
+    {
+      "exp_id": "T05_ls",
+      "seed": 0,
+      "epochs": 10,
+      "curve": "curves/T05_ls_seed0_convnext_atto.png"
+    },
+    {
+      "exp_id": "T06_focal",
+      "seed": 0,
+      "epochs": 10,
+      "curve": "curves/T06_focal_seed0_convnext_atto.png"
+    },
+    {
+      "exp_id": "T07_cutmix_ls",
+      "seed": 0,
+      "epochs": 10,
+      "curve": "curves/T07_cutmix_ls_seed0_convnext_atto.png"
+    },
+    {
+      "exp_id": "F01",
+      "seed": 0,
+      "epochs": 10,
+      "curve": "curves/F01_seed0_convnext_atto.png"
+    },
+    {
+      "exp_id": "F01",
+      "seed": 1,
+      "epochs": 10,
+      "curve": "curves/F01_seed1_convnext_atto.png"
+    },
+    {
+      "exp_id": "F01",
+      "seed": 2,
+      "epochs": 10,
+      "curve": "curves/F01_seed2_convnext_atto.png"
+    },
+    {
+      "exp_id": "T00",
+      "seed": 0,
+      "epochs": 10,
+      "curve": "curves/T00_seed0_convnext_atto.png"
+    },
+    {
+      "exp_id": "T00",
+      "seed": 1,
+      "epochs": 10,
+      "curve": "curves/T00_seed1_convnext_atto.png"
+    },
+    {
+      "exp_id": "T00",
+      "seed": 2,
+      "epochs": 10,
+      "curve": "curves/T00_seed2_convnext_atto.png"
+    }
+  ],
+  "tests": {
+    "goc": 38,
+    "bai_nop": 25
+  },
+  "test_dataset_passes": 6,
+  "test_passes_per_seed": 1,
+  "official_I_points": 19,
+  "official_I_max": 20,
+  "rubric_combination_note": "T07 có LS tốt/CutMix không tốt: giảng viên cân nhắc điểm kết hợp yếu tố tốt",
+  "notebook_full_colab_execution": false,
+  "native_excel_check": false
+}
