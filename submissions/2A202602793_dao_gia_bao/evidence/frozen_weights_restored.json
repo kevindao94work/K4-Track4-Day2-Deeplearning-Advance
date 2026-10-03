@@ -1,0 +1,14 @@
+{
+  "sources": [
+    {
+      "repo_id": "timm/convnext_atto.d2_in1k",
+      "filename": "model.safetensors",
+      "revision": "435c0a8d02d5b872e90c8cde36887465982cb399",
+      "sha256": "0f70bc49f1896c8c15af857d2d1d418abfaf097a62b4e29a35e6e65b752f5953",
+      "actual_sha256": "0f70bc49f1896c8c15af857d2d1d418abfaf097a62b4e29a35e6e65b752f5953",
+      "cache": "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/data/hf_cache",
+      "verified": true
+    }
+  ],
+  "note": "Cache toàn cục mất trước T00 seed0; tải snapshot cố định sang cache data/hf_cache. Recipe, head init và trọng số nguồn không đổi; F01 giữ kết quả đã hoàn tất. Test chưa chạy."
+}

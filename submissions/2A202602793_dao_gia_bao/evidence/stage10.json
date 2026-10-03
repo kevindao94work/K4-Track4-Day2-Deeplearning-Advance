@@ -1,0 +1,129 @@
+{
+  "passed": true,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "groups": {
+    "F01": {
+      "macro_f1_val": {
+        "mean": 0.9447050082521856,
+        "std": 0.0014280303351971958
+      },
+      "top1_val": {
+        "mean": 0.9573455203275255,
+        "std": 0.0007188264719861744
+      },
+      "ece_val": {
+        "mean": 0.011588386580976861,
+        "std": 0.0018666973746878997
+      },
+      "nll_val": {
+        "mean": 0.14364999130598535,
+        "std": 0.007530604888335973
+      }
+    },
+    "T00": {
+      "macro_f1_val": {
+        "mean": 0.9287533160434808,
+        "std": 0.0020047443651408396
+      },
+      "top1_val": {
+        "mean": 0.9464914786251547,
+        "std": 0.0008245505129814717
+      },
+      "ece_val": {
+        "mean": 0.012598372271731889,
+        "std": 9.361236086978285e-05
+      },
+      "nll_val": {
+        "mean": 0.16924254355351329,
+        "std": 0.005923753667440957
+      }
+    }
+  },
+  "ddof": 1,
+  "runs": [
+    {
+      "exp_id": "F01",
+      "seed": 0,
+      "macro_f1_val": 0.9434138860750934,
+      "top1_val": 0.956583833190517,
+      "ece_val": 0.013259729685804099,
+      "nll_val": 0.13842337430715176,
+      "temperature": 0.6325188143255821,
+      "best_epoch": 9,
+      "macro_f1_val_checkpoint_train_resolution": 0.931246790830467,
+      "checkpoint_sha256": "5994e1e6b06df69ce93aa00e92d4d6d167a35e840572266da47b3a4d0b1712b4",
+      "test_evaluated": false
+    },
+    {
+      "exp_id": "F01",
+      "seed": 1,
+      "macro_f1_val": 0.946238839165227,
+      "top1_val": 0.9580119965724079,
+      "ece_val": 0.011931493319051549,
+      "nll_val": 0.15228176024349238,
+      "temperature": 0.6635767870435406,
+      "best_epoch": 10,
+      "macro_f1_val_checkpoint_train_resolution": 0.9284416702987353,
+      "checkpoint_sha256": "30438fdf08878d2703c955f27db0d41718e3fb7388ccd173c16aa51bc9ea3ddb",
+      "test_evaluated": false
+    },
+    {
+      "exp_id": "F01",
+      "seed": 2,
+      "macro_f1_val": 0.9444622995162365,
+      "top1_val": 0.9574407312196516,
+      "ece_val": 0.009573936738074936,
+      "nll_val": 0.14024483936731186,
+      "temperature": 0.6535930229138088,
+      "best_epoch": 10,
+      "macro_f1_val_checkpoint_train_resolution": 0.9313565812738894,
+      "checkpoint_sha256": "6add243b19df15095b39b5c0e511858dfb5c61fc5147200f598a538cbfdfc517",
+      "test_evaluated": false
+    },
+    {
+      "exp_id": "T00",
+      "seed": 0,
+      "macro_f1_val": 0.9270858830866123,
+      "top1_val": 0.9460154241645244,
+      "ece_val": 0.012602934058840451,
+      "nll_val": 0.16319130095370485,
+      "temperature": 1.0,
+      "best_epoch": 10,
+      "macro_f1_val_checkpoint_train_resolution": 0.9270858830866123,
+      "checkpoint_sha256": "11a51f146dcc169bd7a0be616a46baf49d467973de52c92228ec7d2d794b95c2",
+      "test_evaluated": false
+    },
+    {
+      "exp_id": "T00",
+      "seed": 1,
+      "macro_f1_val": 0.930977626089542,
+      "top1_val": 0.9474435875464153,
+      "ece_val": 0.012502562416452392,
+      "nll_val": 0.16950633488739542,
+      "temperature": 1.0,
+      "best_epoch": 10,
+      "macro_f1_val_checkpoint_train_resolution": 0.930977626089542,
+      "checkpoint_sha256": "9b1ecf0480c899dbb018253db51371cb6c75f5ac9fc9539e752d1c2f8ca87617",
+      "test_evaluated": false
+    },
+    {
+      "exp_id": "T00",
+      "seed": 2,
+      "macro_f1_val": 0.928196438954288,
+      "top1_val": 0.9460154241645244,
+      "ece_val": 0.01268962033990282,
+      "nll_val": 0.17502999481943965,
+      "temperature": 1.0,
+      "best_epoch": 10,
+      "macro_f1_val_checkpoint_train_resolution": 0.928196438954288,
+      "checkpoint_sha256": "26c7eb3d062f5903b45f30097c94282950a1fda431c3092e755e71c67cc2b05e",
+      "test_evaluated": false
+    }
+  ],
+  "frozen_sha256": "3cd92528bed41eb7077bb6286aa5c87390b759147e0b765418a8ebfddcc8bca7",
+  "test_evaluated": false
+}

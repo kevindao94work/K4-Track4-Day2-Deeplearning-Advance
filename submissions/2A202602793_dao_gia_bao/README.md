@@ -188,3 +188,35 @@ một view 160 + TS khớp NLL val riêng mỗi seed. Mốc dùng CE, một view
 Dry run đầy đủ val và cấu hình sáu lượt đã qua kiểm tra (`evidence/stage9.json`).
 Mốc chốt được commit/push trước huấn luyện chung kết và trước mọi suy luận test.
 Khi đã có file chốt, lệnh không tự ghi đè lựa chọn theo kết quả mới.
+
+## Huấn luyện chung kết và validation
+
+```bash
+.venv/bin/python submissions/2A202602793_dao_gia_bao/code/workflow.py final-training
+```
+
+Chạy mới F01/T00 cho từng seed 0/1/2 bằng cùng engine, mỗi lượt đủ 10 epoch.
+Đường cong và checkpoint được chọn bằng val ở độ phân giải train 128. Dự đoán
+val đó giữ trong `<ID>_train_seed<k>_val.csv`; sau đó áp dụng policy inference
+cố định và lưu `<ID>_seed<k>_val.csv`, cùng bản `<ID>_uncal_seed<k>_val.csv`.
+Nhiệt độ/metric/hash ở `logs/<ID>/seed<k>/final_val.json`; không chọn lại
+checkpoint hoặc hyperparameter theo các điểm chung kết. Bảng
+`tables/FinalValidation.csv` và `evidence/stage10.json` dùng sample std ddof=1.
+Benchmark được đo lại trên đúng checkpoint seed 0 chung kết, 50 mẫu batch 1/32.
+Giai đoạn này chưa suy luận test.
+
+### Khôi phục cache trọng số chốt
+
+Nếu cache HF toàn cục mất, dùng cache riêng (dữ liệu/trọng số không commit):
+
+```bash
+export HF_HUB_CACHE="$PWD/data/hf_cache"
+.venv/bin/python submissions/2A202602793_dao_gia_bao/code/restore_frozen_weights.py
+export HF_HUB_OFFLINE=1
+.venv/bin/python submissions/2A202602793_dao_gia_bao/code/workflow.py final-training
+```
+
+Utility tải đúng snapshot trong file chốt, kiểm tra SHA-256 trước khi factory
+đọc. Lỗi cache trước T00 seed0 và bằng chứng hash được giữ trong `evidence/`.
+Các lượt F01 đã hoàn tất được nạp lại từ log/CSV, không thay công thức hoặc
+trọng số nguồn. Máy mới chạy toàn bộ quy trình cần bỏ offline cho giai đoạn tải.

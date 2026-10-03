@@ -1,0 +1,396 @@
+{
+  "fold": 0,
+  "n": {
+    "train": 10501,
+    "val": 3501,
+    "test": 3507
+  },
+  "per_class": {
+    "train": [
+      675,
+      637,
+      618,
+      613,
+      637,
+      605,
+      644,
+      609,
+      5463
+    ],
+    "val": [
+      225,
+      213,
+      206,
+      204,
+      212,
+      202,
+      215,
+      203,
+      1821
+    ],
+    "test": [
+      226,
+      213,
+      207,
+      205,
+      213,
+      202,
+      215,
+      204,
+      1822
+    ]
+  },
+  "class_names": [
+    "Chinee apple",
+    "Lantana",
+    "Parkinsonia",
+    "Parthenium",
+    "Prickly acacia",
+    "Rubber vine",
+    "Siam weed",
+    "Snake weed",
+    "Negative"
+  ],
+  "overlap": {
+    "train_val": 0,
+    "train_test": 0,
+    "val_test": 0
+  },
+  "union": 17509,
+  "missing": 0,
+  "num_classes": 9,
+  "annotation_conflicts": {
+    "train": [
+      {
+        "Filename": "20170714-110407-3.jpg",
+        "split_label": 0,
+        "labels_csv_label": 1
+      }
+    ],
+    "val": [],
+    "test": []
+  },
+  "csv_sha256": {
+    "labels.csv": "6fb95b89fd9d384f94e185a5cab6c5da7c987649399c90618ecc60acfb0112eb",
+    "train_subset0.csv": "a2e63f561a545837c8cabaa276a957ccf1293ec985c9d8fbc49d67b4fd5abdb2",
+    "val_subset0.csv": "1fa70a03a68def06c921a1dd7f0b53e96490f6dfad51d7d423bb145161ebc478",
+    "test_subset0.csv": "fb212793b988bc0455aae2e48cb9eb3168014c2f47fbdb93f5f1e284e0974f75"
+  }
+}
+{"exp_id": "F01", "seed": 0, "epoch": 1, "train_loss": 1.3384497107529059, "train_top1": 0.6297637195121951, "lr": 0.001, "train_n": 10496, "val_loss": 0.687279799671658, "val_macro_f1": 0.6980608786772792, "val_top1": 0.7849185946872322, "val_balanced_acc": 0.6763883846981671, "seconds": 67.23840137501247, "train_seconds": 49.64529158297228, "val_seconds": 17.593109792040195}
+{"exp_id": "F01", "seed": 0, "epoch": 2, "train_loss": 0.900746415301067, "train_top1": 0.8162157012195121, "lr": 0.0009698463103929542, "train_n": 10496, "val_loss": 0.5572099278259877, "val_macro_f1": 0.7474688034958858, "val_top1": 0.8209083119108826, "val_balanced_acc": 0.6826068823044769, "seconds": 72.04009070800385, "train_seconds": 50.79339908302063, "val_seconds": 21.246691624983214}
+{"exp_id": "F01", "seed": 0, "epoch": 3, "train_loss": 0.7905847502917778, "train_top1": 0.8706173780487805, "lr": 0.000883022221559489, "train_n": 10496, "val_loss": 0.4393996736622647, "val_macro_f1": 0.8215502978524185, "val_top1": 0.8703227649243074, "val_balanced_acc": 0.7789302469283408, "seconds": 66.8395233330084, "train_seconds": 49.72266887500882, "val_seconds": 17.11685445799958}
+{"exp_id": "F01", "seed": 0, "epoch": 4, "train_loss": 0.7274001982153916, "train_top1": 0.895483993902439, "lr": 0.00075, "train_n": 10496, "val_loss": 0.3507754821005769, "val_macro_f1": 0.8628369572406865, "val_top1": 0.9011710939731505, "val_balanced_acc": 0.8532438443810655, "seconds": 65.5875455000205, "train_seconds": 48.54811529099243, "val_seconds": 17.03943020902807}
+{"exp_id": "F01", "seed": 0, "epoch": 5, "train_loss": 0.6930988590891768, "train_top1": 0.9115853658536586, "lr": 0.0005868240888334653, "train_n": 10496, "val_loss": 0.2963372810640801, "val_macro_f1": 0.9043189118036012, "val_top1": 0.9257355041416738, "val_balanced_acc": 0.8957516538291446, "seconds": 65.6040552079794, "train_seconds": 48.534394624992274, "val_seconds": 17.069660582987126}
+{"exp_id": "F01", "seed": 0, "epoch": 6, "train_loss": 0.6563721633538967, "train_top1": 0.9277820121951219, "lr": 0.00041317591116653486, "train_n": 10496, "val_loss": 0.2897712024058045, "val_macro_f1": 0.9032444402722533, "val_top1": 0.9265924021708083, "val_balanced_acc": 0.8888363378694629, "seconds": 69.71166620904114, "train_seconds": 50.03434987500077, "val_seconds": 19.67731633404037}
+{"exp_id": "F01", "seed": 0, "epoch": 7, "train_loss": 0.6296103872903963, "train_top1": 0.9375952743902439, "lr": 0.0002500000000000001, "train_n": 10496, "val_loss": 0.27061968053946733, "val_macro_f1": 0.9157835399553864, "val_top1": 0.9357326478149101, "val_balanced_acc": 0.8952694293522059, "seconds": 69.94073299999582, "train_seconds": 51.24253204104025, "val_seconds": 18.698200958955567}
+{"exp_id": "F01", "seed": 0, "epoch": 8, "train_loss": 0.6099541361738996, "train_top1": 0.9489329268292683, "lr": 0.00011697777844051105, "train_n": 10496, "val_loss": 0.24492906304265186, "val_macro_f1": 0.9235993374933411, "val_top1": 0.9425878320479862, "val_balanced_acc": 0.9196197728024862, "seconds": 67.63591387501219, "train_seconds": 49.87158962502144, "val_seconds": 17.76432424999075}
+{"exp_id": "F01", "seed": 0, "epoch": 9, "train_loss": 0.5975625573135004, "train_top1": 0.9534108231707317, "lr": 3.0153689607045842e-05, "train_n": 10496, "val_loss": 0.23962640327339477, "val_macro_f1": 0.931246790830467, "val_top1": 0.9483004855755498, "val_balanced_acc": 0.9274818867468314, "seconds": 69.33785033301683, "train_seconds": 51.58692770800553, "val_seconds": 17.7509226250113}
+{"exp_id": "F01", "seed": 0, "epoch": 10, "train_loss": 0.5847533156232136, "train_top1": 0.9594131097560976, "lr": 0.0, "train_n": 10496, "val_loss": 0.23830767936304412, "val_macro_f1": 0.9292570367946781, "val_top1": 0.9468723221936589, "val_balanced_acc": 0.9247942298327883, "seconds": 67.47142662497936, "train_seconds": 50.14831379201496, "val_seconds": 17.323112832964398}
+{"exp_id": "F01", "seed": 0, "macro_f1_val": 0.9434138860750934, "top1_val": 0.956583833190517, "ece_val": 0.013259729685804099, "nll_val": 0.13842337430715176, "temperature": 0.6325188143255821, "best_epoch": 9, "macro_f1_val_checkpoint_train_resolution": 0.931246790830467, "checkpoint_sha256": "5994e1e6b06df69ce93aa00e92d4d6d167a35e840572266da47b3a4d0b1712b4", "test_evaluated": false}
+{
+  "fold": 0,
+  "n": {
+    "train": 10501,
+    "val": 3501,
+    "test": 3507
+  },
+  "per_class": {
+    "train": [
+      675,
+      637,
+      618,
+      613,
+      637,
+      605,
+      644,
+      609,
+      5463
+    ],
+    "val": [
+      225,
+      213,
+      206,
+      204,
+      212,
+      202,
+      215,
+      203,
+      1821
+    ],
+    "test": [
+      226,
+      213,
+      207,
+      205,
+      213,
+      202,
+      215,
+      204,
+      1822
+    ]
+  },
+  "class_names": [
+    "Chinee apple",
+    "Lantana",
+    "Parkinsonia",
+    "Parthenium",
+    "Prickly acacia",
+    "Rubber vine",
+    "Siam weed",
+    "Snake weed",
+    "Negative"
+  ],
+  "overlap": {
+    "train_val": 0,
+    "train_test": 0,
+    "val_test": 0
+  },
+  "union": 17509,
+  "missing": 0,
+  "num_classes": 9,
+  "annotation_conflicts": {
+    "train": [
+      {
+        "Filename": "20170714-110407-3.jpg",
+        "split_label": 0,
+        "labels_csv_label": 1
+      }
+    ],
+    "val": [],
+    "test": []
+  },
+  "csv_sha256": {
+    "labels.csv": "6fb95b89fd9d384f94e185a5cab6c5da7c987649399c90618ecc60acfb0112eb",
+    "train_subset0.csv": "a2e63f561a545837c8cabaa276a957ccf1293ec985c9d8fbc49d67b4fd5abdb2",
+    "val_subset0.csv": "1fa70a03a68def06c921a1dd7f0b53e96490f6dfad51d7d423bb145161ebc478",
+    "test_subset0.csv": "fb212793b988bc0455aae2e48cb9eb3168014c2f47fbdb93f5f1e284e0974f75"
+  }
+}
+{"exp_id": "F01", "seed": 1, "epoch": 1, "train_loss": 1.350926003805021, "train_top1": 0.6204268292682927, "lr": 0.001, "train_n": 10496, "val_loss": 0.6138089757686137, "val_macro_f1": 0.7286225679165436, "val_top1": 0.8097686375321337, "val_balanced_acc": 0.7178557050121354, "seconds": 68.57983483397402, "train_seconds": 50.75271870900178, "val_seconds": 17.827116124972235}
+{"exp_id": "F01", "seed": 1, "epoch": 2, "train_loss": 0.9106561614245903, "train_top1": 0.8136432926829268, "lr": 0.0009698463103929542, "train_n": 10496, "val_loss": 0.438243037460532, "val_macro_f1": 0.8259534067545674, "val_top1": 0.8683233361896601, "val_balanced_acc": 0.8166018020233428, "seconds": 68.5802914579981, "train_seconds": 50.538341041014064, "val_seconds": 18.041950416984037}
+{"exp_id": "F01", "seed": 1, "epoch": 3, "train_loss": 0.794281005859375, "train_top1": 0.8689977134146342, "lr": 0.000883022221559489, "train_n": 10496, "val_loss": 0.4163255505955447, "val_macro_f1": 0.8268620048789966, "val_top1": 0.8723221936589546, "val_balanced_acc": 0.7903579413256401, "seconds": 79.74961749999784, "train_seconds": 61.056980875029694, "val_seconds": 18.692636624968145}
+{"exp_id": "F01", "seed": 1, "epoch": 4, "train_loss": 0.7298148550638338, "train_top1": 0.8978658536585366, "lr": 0.00075, "train_n": 10496, "val_loss": 0.32677725066426344, "val_macro_f1": 0.8947025730284844, "val_top1": 0.9205941159668666, "val_balanced_acc": 0.8802779983632929, "seconds": 68.31508404196938, "train_seconds": 50.23417916696053, "val_seconds": 18.080904875008855}
+{"exp_id": "F01", "seed": 1, "epoch": 5, "train_loss": 0.6883256028338176, "train_top1": 0.9127286585365854, "lr": 0.0005868240888334653, "train_n": 10496, "val_loss": 0.30489801211770484, "val_macro_f1": 0.9069191033844809, "val_top1": 0.9274493001999429, "val_balanced_acc": 0.9193599773189047, "seconds": 67.66244770801859, "train_seconds": 49.79960462503368, "val_seconds": 17.86284308298491}
+{"exp_id": "F01", "seed": 1, "epoch": 6, "train_loss": 0.6551953757681498, "train_top1": 0.9275914634146342, "lr": 0.00041317591116653486, "train_n": 10496, "val_loss": 0.30301217866757707, "val_macro_f1": 0.8922491796597245, "val_top1": 0.919451585261354, "val_balanced_acc": 0.8896373624544582, "seconds": 70.41617195901927, "train_seconds": 49.52963462501066, "val_seconds": 20.886537334008608}
+{"exp_id": "F01", "seed": 1, "epoch": 7, "train_loss": 0.6349043962432117, "train_top1": 0.9348323170731707, "lr": 0.0002500000000000001, "train_n": 10496, "val_loss": 0.2782496727771059, "val_macro_f1": 0.910715808070719, "val_top1": 0.9303056269637247, "val_balanced_acc": 0.8874970796991261, "seconds": 73.8774496249971, "train_seconds": 55.455397374986205, "val_seconds": 18.422052250010893}
+{"exp_id": "F01", "seed": 1, "epoch": 8, "train_loss": 0.6130735350818168, "train_top1": 0.9464557926829268, "lr": 0.00011697777844051105, "train_n": 10496, "val_loss": 0.26013809591914816, "val_macro_f1": 0.9175667356982429, "val_top1": 0.9374464438731791, "val_balanced_acc": 0.9094596145732843, "seconds": 80.89787158300169, "train_seconds": 62.4362025000155, "val_seconds": 18.46166908298619}
+{"exp_id": "F01", "seed": 1, "epoch": 9, "train_loss": 0.5906983817495951, "train_top1": 0.9573170731707317, "lr": 3.0153689607045842e-05, "train_n": 10496, "val_loss": 0.24884123294072913, "val_macro_f1": 0.9199999645016379, "val_top1": 0.9397315052842045, "val_balanced_acc": 0.9149209166782685, "seconds": 70.24033679201966, "train_seconds": 52.192387917020824, "val_seconds": 18.047948874998838}
+{"exp_id": "F01", "seed": 1, "epoch": 10, "train_loss": 0.583049913732017, "train_top1": 0.9607469512195121, "lr": 0.0, "train_n": 10496, "val_loss": 0.24559204714940433, "val_macro_f1": 0.9284416702987353, "val_top1": 0.9451585261353899, "val_balanced_acc": 0.9230431579156184, "seconds": 68.54885962500703, "train_seconds": 50.649188167008106, "val_seconds": 17.89967145799892}
+{"exp_id": "F01", "seed": 1, "macro_f1_val": 0.946238839165227, "top1_val": 0.9580119965724079, "ece_val": 0.011931493319051549, "nll_val": 0.15228176024349238, "temperature": 0.6635767870435406, "best_epoch": 10, "macro_f1_val_checkpoint_train_resolution": 0.9284416702987353, "checkpoint_sha256": "30438fdf08878d2703c955f27db0d41718e3fb7388ccd173c16aa51bc9ea3ddb", "test_evaluated": false}
+{
+  "fold": 0,
+  "n": {
+    "train": 10501,
+    "val": 3501,
+    "test": 3507
+  },
+  "per_class": {
+    "train": [
+      675,
+      637,
+      618,
+      613,
+      637,
+      605,
+      644,
+      609,
+      5463
+    ],
+    "val": [
+      225,
+      213,
+      206,
+      204,
+      212,
+      202,
+      215,
+      203,
+      1821
+    ],
+    "test": [
+      226,
+      213,
+      207,
+      205,
+      213,
+      202,
+      215,
+      204,
+      1822
+    ]
+  },
+  "class_names": [
+    "Chinee apple",
+    "Lantana",
+    "Parkinsonia",
+    "Parthenium",
+    "Prickly acacia",
+    "Rubber vine",
+    "Siam weed",
+    "Snake weed",
+    "Negative"
+  ],
+  "overlap": {
+    "train_val": 0,
+    "train_test": 0,
+    "val_test": 0
+  },
+  "union": 17509,
+  "missing": 0,
+  "num_classes": 9,
+  "annotation_conflicts": {
+    "train": [
+      {
+        "Filename": "20170714-110407-3.jpg",
+        "split_label": 0,
+        "labels_csv_label": 1
+      }
+    ],
+    "val": [],
+    "test": []
+  },
+  "csv_sha256": {
+    "labels.csv": "6fb95b89fd9d384f94e185a5cab6c5da7c987649399c90618ecc60acfb0112eb",
+    "train_subset0.csv": "a2e63f561a545837c8cabaa276a957ccf1293ec985c9d8fbc49d67b4fd5abdb2",
+    "val_subset0.csv": "1fa70a03a68def06c921a1dd7f0b53e96490f6dfad51d7d423bb145161ebc478",
+    "test_subset0.csv": "fb212793b988bc0455aae2e48cb9eb3168014c2f47fbdb93f5f1e284e0974f75"
+  }
+}
+{"exp_id": "F01", "seed": 2, "epoch": 1, "train_loss": 1.326323439435261, "train_top1": 0.6350038109756098, "lr": 0.001, "train_n": 10496, "val_loss": 0.6300413279116613, "val_macro_f1": 0.7422190433311685, "val_top1": 0.805484147386461, "val_balanced_acc": 0.7564397333428169, "seconds": 72.74961749999784, "train_seconds": 53.98298437503399, "val_seconds": 18.766633124963846}
+{"exp_id": "F01", "seed": 2, "epoch": 2, "train_loss": 0.894931979295684, "train_top1": 0.8197408536585366, "lr": 0.0009698463103929542, "train_n": 10496, "val_loss": 0.4364756232447299, "val_macro_f1": 0.8237923476050092, "val_top1": 0.8734647243644673, "val_balanced_acc": 0.8068088577789294, "seconds": 71.66098812501878, "train_seconds": 53.71990679198643, "val_seconds": 17.941081333032344}
+{"exp_id": "F01", "seed": 2, "epoch": 3, "train_loss": 0.7844298758157869, "train_top1": 0.8714748475609756, "lr": 0.000883022221559489, "train_n": 10496, "val_loss": 0.3814632180621712, "val_macro_f1": 0.8552063680351155, "val_top1": 0.8968866038274779, "val_balanced_acc": 0.8356808293131185, "seconds": 69.08103283296805, "train_seconds": 50.745617042004596, "val_seconds": 18.335415790963452}
+{"exp_id": "F01", "seed": 2, "epoch": 4, "train_loss": 0.7376224238698076, "train_top1": 0.891577743902439, "lr": 0.00075, "train_n": 10496, "val_loss": 0.34387642138346847, "val_macro_f1": 0.8765221774539845, "val_top1": 0.9071693801770923, "val_balanced_acc": 0.8713648065653989, "seconds": 69.83334537502378, "train_seconds": 51.803910041984636, "val_seconds": 18.029435333039146}
+{"exp_id": "F01", "seed": 2, "epoch": 5, "train_loss": 0.6882579617384004, "train_top1": 0.9117759146341463, "lr": 0.0005868240888334653, "train_n": 10496, "val_loss": 0.31254960827250644, "val_macro_f1": 0.8943003598988306, "val_top1": 0.9203084832904884, "val_balanced_acc": 0.883057022984761, "seconds": 72.25347254099324, "train_seconds": 53.03911924996646, "val_seconds": 19.214353291026782}
+{"exp_id": "F01", "seed": 2, "epoch": 6, "train_loss": 0.6528091895871047, "train_top1": 0.9275914634146342, "lr": 0.00041317591116653486, "train_n": 10496, "val_loss": 0.2785447203867846, "val_macro_f1": 0.9133909063667259, "val_top1": 0.9337332190802627, "val_balanced_acc": 0.9023628579056064, "seconds": 73.42802295798901, "train_seconds": 55.65521908295341, "val_seconds": 17.772803875035606}
+{"exp_id": "F01", "seed": 2, "epoch": 7, "train_loss": 0.6256522201910252, "train_top1": 0.9399771341463414, "lr": 0.0002500000000000001, "train_n": 10496, "val_loss": 0.27106040897487876, "val_macro_f1": 0.9175366861804863, "val_top1": 0.9385889745786918, "val_balanced_acc": 0.9078272731875138, "seconds": 77.32034370896872, "train_seconds": 59.089728124963585, "val_seconds": 18.230615584005136}
+{"exp_id": "F01", "seed": 2, "epoch": 8, "train_loss": 0.604069965641673, "train_top1": 0.9487423780487805, "lr": 0.00011697777844051105, "train_n": 10496, "val_loss": 0.24906404628409076, "val_macro_f1": 0.9270725786708367, "val_top1": 0.9445872607826336, "val_balanced_acc": 0.9230219773919224, "seconds": 67.49342650000472, "train_seconds": 49.936047166993376, "val_seconds": 17.55737933301134}
+{"exp_id": "F01", "seed": 2, "epoch": 9, "train_loss": 0.5913394834937119, "train_top1": 0.9562690548780488, "lr": 3.0153689607045842e-05, "train_n": 10496, "val_loss": 0.2443431098651491, "val_macro_f1": 0.9304656604928611, "val_top1": 0.9471579548700372, "val_balanced_acc": 0.9225920241813649, "seconds": 68.029714083008, "train_seconds": 49.79875679104589, "val_seconds": 18.230957291962113}
+{"exp_id": "F01", "seed": 2, "epoch": 10, "train_loss": 0.5883957002221084, "train_top1": 0.9572217987804879, "lr": 0.0, "train_n": 10496, "val_loss": 0.24450813628620366, "val_macro_f1": 0.9313565812738894, "val_top1": 0.9477292202227935, "val_balanced_acc": 0.9213089017987873, "seconds": 67.8768639160553, "train_seconds": 50.15434287500102, "val_seconds": 17.72252104105428}
+{"exp_id": "F01", "seed": 2, "macro_f1_val": 0.9444622995162365, "top1_val": 0.9574407312196516, "ece_val": 0.009573936738074936, "nll_val": 0.14024483936731186, "temperature": 0.6535930229138088, "best_epoch": 10, "macro_f1_val_checkpoint_train_resolution": 0.9313565812738894, "checkpoint_sha256": "6add243b19df15095b39b5c0e511858dfb5c61fc5147200f598a538cbfdfc517", "test_evaluated": false}
+{
+  "fold": 0,
+  "n": {
+    "train": 10501,
+    "val": 3501,
+    "test": 3507
+  },
+  "per_class": {
+    "train": [
+      675,
+      637,
+      618,
+      613,
+      637,
+      605,
+      644,
+      609,
+      5463
+    ],
+    "val": [
+      225,
+      213,
+      206,
+      204,
+      212,
+      202,
+      215,
+      203,
+      1821
+    ],
+    "test": [
+      226,
+      213,
+      207,
+      205,
+      213,
+      202,
+      215,
+      204,
+      1822
+    ]
+  },
+  "class_names": [
+    "Chinee apple",
+    "Lantana",
+    "Parkinsonia",
+    "Parthenium",
+    "Prickly acacia",
+    "Rubber vine",
+    "Siam weed",
+    "Snake weed",
+    "Negative"
+  ],
+  "overlap": {
+    "train_val": 0,
+    "train_test": 0,
+    "val_test": 0
+  },
+  "union": 17509,
+  "missing": 0,
+  "num_classes": 9,
+  "annotation_conflicts": {
+    "train": [
+      {
+        "Filename": "20170714-110407-3.jpg",
+        "split_label": 0,
+        "labels_csv_label": 1
+      }
+    ],
+    "val": [],
+    "test": []
+  },
+  "csv_sha256": {
+    "labels.csv": "6fb95b89fd9d384f94e185a5cab6c5da7c987649399c90618ecc60acfb0112eb",
+    "train_subset0.csv": "a2e63f561a545837c8cabaa276a957ccf1293ec985c9d8fbc49d67b4fd5abdb2",
+    "val_subset0.csv": "1fa70a03a68def06c921a1dd7f0b53e96490f6dfad51d7d423bb145161ebc478",
+    "test_subset0.csv": "fb212793b988bc0455aae2e48cb9eb3168014c2f47fbdb93f5f1e284e0974f75"
+  }
+}
+huggingface_hub.errors.OfflineModeIsEnabled: Cannot reach https://huggingface.co/timm/convnext_atto.d2_in1k/resolve/main/pytorch_model.bin: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/code/final_training.py", line 114, in <module>
+    
+  File "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/code/final_training.py", line 68, in final_training
+    assert_integrity(frozen);cfg=config_for(eid,seed)
+            ^^^^^^^^
+  File "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/code/train.py", line 354, in run
+    model = build_model(cfg.backbone, cfg.pretrained, drop_rate=cfg.drop_rate, init=cfg.init, img_size=cfg.img_size)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/submissions/2A202602793_dao_gia_bao/code/model.py", line 59, in build_model
+    model = timm.create_model(name, pretrained=pretrained and init != 'scratch',
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/.venv/lib/python3.12/site-packages/timm/models/_factory.py", line 138, in create_model
+    model = create_fn(
+            ^^^^^^^^^^
+  File "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/.venv/lib/python3.12/site-packages/timm/models/convnext.py", line 1174, in convnext_atto
+    model = _create_convnext('convnext_atto', pretrained=pretrained, **dict(model_args, **kwargs))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/.venv/lib/python3.12/site-packages/timm/models/convnext.py", line 699, in _create_convnext
+    model = build_model_with_cfg(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/.venv/lib/python3.12/site-packages/timm/models/_builder.py", line 457, in build_model_with_cfg
+    load_pretrained(
+  File "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/.venv/lib/python3.12/site-packages/timm/models/_builder.py", line 226, in load_pretrained
+    state_dict = load_state_dict_from_hf(pretrained_loc, weights_only=True, cache_dir=cache_dir)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tridao/Documents/Personal/VINAITC/Week_4/K4-Track4-Day2-Deeplearning-Advance/.venv/lib/python3.12/site-packages/timm/models/_hub.py", line 240, in load_state_dict_from_hf
+    cached_file = hf_hub_download(
+                  ^^^^^^^^^^^^^^^^
+  File "/Users/tridao/.local/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 91, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/tridao/.local/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 266, in _inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/tridao/.local/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1043, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tridao/.local/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1190, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+  File "/Users/tridao/.local/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1957, in _raise_on_head_call_error
+    raise LocalEntryNotFoundError(
+huggingface_hub.errors.LocalEntryNotFoundError: An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.

@@ -220,7 +220,7 @@ def training():
 
 def main():
     ap=argparse.ArgumentParser(description='Quy trình Lab Day 2 theo từng giai đoạn')
-    ap.add_argument('stage',choices=['backbones','audit-backbones','training','inference'])
+    ap.add_argument('stage',choices=['backbones','audit-backbones','training','inference','freeze','final-training'])
     args=ap.parse_args()
     if args.stage=='backbones': backbones()
     elif args.stage=='audit-backbones': print(json.dumps(audit_backbones(),ensure_ascii=False))
@@ -228,6 +228,12 @@ def main():
     elif args.stage=='inference':
         from inference_lab import run_inference
         run_inference()
+    elif args.stage=='freeze':
+        from freeze_final import freeze
+        freeze()
+    elif args.stage=='final-training':
+        from final_training import final_training
+        final_training()
 
 
 if __name__=='__main__':main()
