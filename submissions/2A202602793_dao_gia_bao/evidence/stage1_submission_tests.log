@@ -1,0 +1,9 @@
+test_fold_rejected_before_io (test_dataset.DatasetTests.test_fold_rejected_before_io) ... ok
+test_reject_invalid_labels_duplicates_paths (test_dataset.DatasetTests.test_reject_invalid_labels_duplicates_paths) ... ok
+test_rgb_filename_and_deterministic_val (test_dataset.DatasetTests.test_rgb_filename_and_deterministic_val) ... ok
+test_seeded_training_loader (test_dataset.DatasetTests.test_seeded_training_loader) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.065s
+
+OK
